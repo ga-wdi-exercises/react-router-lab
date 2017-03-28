@@ -7,13 +7,16 @@ class Dashboard extends Component {
     super(props)
     console.log(props)
   }
+
   render(){
     let stocks = this.props.stocks
 
     return(
       <div>
         <h1>Stocks</h1>
-        {stocks.length}
+        {stocks.forEach(stock, i){
+          return({stock.name})
+        }}
     </div>
     )
     }
