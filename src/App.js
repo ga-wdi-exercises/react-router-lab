@@ -6,6 +6,8 @@ import {
   Redirect
 } from "react-router-dom"
 import Dashboard from "./Dashboard"
+import About from "./About"
+import Stock from "./Stock"
 import './App.css';
 
 class App extends Component {
@@ -41,7 +43,17 @@ class App extends Component {
 
           <Route path="/about"
             render={() =>
-              <h2>This is an about Page</h2>
+              <About
+
+              />
+            }
+          />
+
+          <Route path="/stocks/:symbol"
+            render={() =>
+              <Stock
+
+              />
             }
           />
 
