@@ -32,7 +32,7 @@ class App extends Component {
                 <nav>
                     Tick my Stock {'\u00A0'}
                     <Link to="/stocks"> Home </Link> {'\u00A0'} | {'\u00A0'}
-                    <Link to="/about"> About </Link>
+                    <Link to="/search"> Search </Link>
                 </nav>
                 <Route exact path="/stocks" render={() => {
                     return(
@@ -44,6 +44,7 @@ class App extends Component {
                 }}
                 />
                 <Route path="/stocks/:symbol" component={StockShow}/>
+                <Route path="/search" component={Search} />
 
             </div>
         </Router>

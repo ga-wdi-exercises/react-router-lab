@@ -15,6 +15,14 @@ class StockShow extends Component {
         return(
             <div>
                 <h2> {this.state.stock.name}</h2>
+                <ul>
+                    <li>Symbol: {this.state.stock.symbol}</li>
+                    <li>Last Price: {this.state.stock.lastPrice}</li>
+                    <li>Change: {this.state.stock.change}</li>
+                    <li>High: {this.state.stock.high}</li>
+                    <li>Low: {this.state.stock.low}</li>
+
+                </ul>
             </div>
         )
     }
