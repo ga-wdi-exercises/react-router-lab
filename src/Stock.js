@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import $ from "jquery"
 
 class Stock extends Component {
   constructor(props) {
@@ -7,6 +8,7 @@ class Stock extends Component {
       stock: this.props.location.state.active
     }
   }
+
   render() {
     return(
       <div>

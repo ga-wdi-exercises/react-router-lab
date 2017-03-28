@@ -23,7 +23,7 @@ class Search extends Component {
     console.log(this.state.searchedStock);
   }
 
-  handleTrackk(e){
+  handleTrack(e){
     let url = "http://localhost:3000/stocks"
     $.ajax({
       url,
@@ -36,7 +36,7 @@ class Search extends Component {
       },
       dataType: "json"
     }).then((response) => {
-      this.props.handleTrackedState(response)
+      this.props.handleTrack(response)
     })
   }
 

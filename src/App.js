@@ -16,7 +16,8 @@ class App extends Component {
   constructor(props){
     super(props)
     this.state = {
-      stocks: []
+      stocks: [],
+      hasTracked: false
     }
   }
   componentDidMount(){
@@ -26,6 +27,16 @@ class App extends Component {
       })
     })
   }
+
+  handleTrack(newStock){
+    let temporary = this.state.stocks
+    temporary.push(newStock)
+    this.setState({
+      stocks: temporary,
+      hasTracked: true
+    })
+  }
+
   render() {
     return (
       <Router>
@@ -57,11 +68,13 @@ class App extends Component {
           />
 
           <Route path="/search"
-            render={() =>
-              <Search
-
-              />
-            }
+            render={() => {
+              if(this.state.hasTracked){
+                return <Redirect to="/" />
+              }
+              return(
+              <Search handleTrack={this.handleTrack}/>
+              )}}
           />
 
         </div>
