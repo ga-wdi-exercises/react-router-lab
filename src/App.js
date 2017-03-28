@@ -8,6 +8,7 @@ import {
 import Data from "../data/stock-data.json"
 import Dashboard from "./Dashboard.js"
 import About from "./About.js"
+import Stock from "./Stock.js"
 import './App.css';
 
 class App extends Component {
@@ -28,13 +29,24 @@ class App extends Component {
             <div className="nav-item"><Link to="/search">Search</Link></div>
             <div className="nav-item"><Link to="/about">About</Link></div>
           </div>
-          <Dashboard
-            stocks={this.state.stocks}
+          <Route
+            path="/"
+            render={() => <Dashboard stocks={this.state.stocks} />}
           />
-        <Route
-          path="/about"
-          render={() => <About />}
-        />
+          <Route
+            path="/about"
+            render={() => <About />}
+          />
+          <Route
+            path="/stock/:symbol"
+            render={() => <Stock stocks={this.state.stocks} />}
+          />
+          <Route
+            path="/*"
+            render={() => {
+              return <Redirect to="/" />
+            }}
+          />
         </div>
       </Router>
     );

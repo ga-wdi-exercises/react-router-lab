@@ -1,20 +1,21 @@
 import React, { Component } from "react"
+import { Link } from "react-router-dom"
+
 import "./Dashboard.css"
 
 class Dashboard extends Component {
   // displayStocks() {
   //   {this.props.stocks}.forEach()
   // }
-  componentWillMount(){
-    console.log(this.props.stocks)
-  }
+  // componentWillMount(){
+  //   console.log(this.props.stocks)
+  // }
 
   render() {
     let mappedData = this.props.stocks.map( (stocks, index) => {
-       // each comment needs a key attribute to keep track of data passed as props
-       // key should be a unique identifier for each child component
-    return (<li key={index}>{stocks.name} (<a href="#">{stocks.symbol}</a>)</li>
-    )})
+      let url = "/stock/" + stocks.symbol
+      return (<li key={index}>{stocks.name} (<Link to={url}>{stocks.symbol}</Link>)</li>)
+    })
     return(
       <div className="stocks">
         <h2>Stocks</h2>
