@@ -6,6 +6,7 @@ class Dashboard extends Component {
   }
   render() {
     return(
+      this.state.stockData
     )
   }
 }

@@ -6,6 +6,7 @@ import {
   Redirect
 } from "react-router-dom"
 import About from './About'
+import Home from './Home'
 import './App.css';
 
 
@@ -36,12 +37,21 @@ class App extends Component {
             </p>
           </nav>
           <main>
+            <Route
+              path="/"
+              render={() => {
+                return(
+                  <Home
+                    stockData={this.state.stockData}
+                  />
+                )
+              }}
+              />
 
             <Route
                 path="/about" render={() =>
                 <About/>
-              }
-              />
+              }/>
           </main>
         </div>
       </Router>
