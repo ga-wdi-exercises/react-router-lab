@@ -1,13 +1,24 @@
 import React, { Component } from 'react';
+import data from '../data/stock-data.json'
 import {
   BrowserRouter as Router,
   Route,
   Link,
   Redirect
 } from "react-router-dom"
+import About from "./About"
+import Dashboard from './Dashboard'
 import './App.css';
 
+console.log(data)
+
 class App extends Component {
+  constructor(props){
+    super(props)
+    this.state = {
+      stocks: data
+    }
+  }
   render() {
     return (
       <Router>
@@ -33,20 +44,15 @@ class App extends Component {
 
          <Route
       path="/about"
-      render={() =>{
-        return(
-           <h2>About</h2>
 
-        )
-      }  }
+       component={About}
+
       />
 
-      <Route
-      path="/"
-      render={() => {
-        return <h2>Home page</h2>
-      }}
-      />
+   <Route exact path="/" render={() => {
+      return <Dashboard stocks={this.state.stocks}/>
+      }}/>
+
       <Route
       path="/*"
       render={() => {
