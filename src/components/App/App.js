@@ -1,6 +1,6 @@
 //Dependencies
 import React, { Component } from 'react';
-import axios from 'axios'
+// import axios from 'axios'
 import {
   BrowserRouter as Router,
   Route,
@@ -19,10 +19,10 @@ import './App.css';
 
 
 class App extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
-
+      stocks: stockData
     }
   }
   render() {
@@ -43,7 +43,7 @@ class App extends Component {
               render={() => {
                 return(
                   <Dashboard
-
+                      stocks={this.state.stocks}
                   />
                 )
               }}
