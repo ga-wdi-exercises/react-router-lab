@@ -17,7 +17,16 @@ class Dashboard extends Component {
     let stocks = data.map(function(a) {
       let url = '/stocks/'+a.symbol
       return (
-        <Link to={url} key={a.symbol}><p> {a.symbol} | {a.name}</p></Link>
+        <Link
+          to={{
+            pathname: url,
+            state: {selectedStock: a}
+          }}
+          key={a.symbol}>
+          <p>
+            {a.symbol} | {a.name}
+          </p>
+        </Link>
       );
     })
     return(

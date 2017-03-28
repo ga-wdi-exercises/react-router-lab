@@ -8,13 +8,14 @@ import {
 import Dashboard from './Dashboard'
 import About from './About'
 import Stock from './Stock'
+import data from '../data/stock-data.json'
 import './App.css';
 
 class App extends Component {
   constructor() {
     super()
     this.state = {
-      stock: ''
+      stocks: data
     }
   }
   render() {
@@ -36,7 +37,7 @@ class App extends Component {
               }}
             />
             <Route
-              path='stocks/stock'
+              path='/stocks/:symbol'
               render={() => {
                 return(
                   <Stock
