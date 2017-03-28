@@ -19,6 +19,7 @@ class App extends Component {
       stocks: [],
       hasTracked: false
     }
+    this.handleTrack = this.handleTrack.bind(this)
   }
   componentDidMount(){
     axios.get("http://localhost:3000/stocks").then((response) => {
