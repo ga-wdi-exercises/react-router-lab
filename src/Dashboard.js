@@ -21,7 +21,6 @@ class Dashboard extends Component {
     })
     return (
       <div>
-      <p>Hello World</p>
         <ul>
           {stocks}
         </ul>
