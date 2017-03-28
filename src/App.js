@@ -34,7 +34,7 @@ class App extends Component {
                     <Link to="/stocks"> Home </Link> {'\u00A0'} | {'\u00A0'}
                     <Link to="/about"> About </Link>
                 </nav>
-                <Route path="/stocks" render={() => {
+                <Route exact path="/stocks" render={() => {
                     return(
                         <StockList
                             stocks={this.state.stocks}

@@ -14,7 +14,7 @@ class StockList extends Component {
             let pathname = `/stocks/${stock.symbol}`
 
             return(
-                <li id={index + 1} name={stock.name}>
+                <li key={index + 1} name={stock.name}>
                     {stock.name}
                     <Link to={{
                         pathname,
