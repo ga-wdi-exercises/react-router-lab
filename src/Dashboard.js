@@ -1,31 +1,22 @@
 import React, {Component} from 'react'
-import Stock from './Stock.js'
-
-const data = require('../data/stock-data.json')
+import {Link} from 'react-router-dom'
 
 class Dashboard extends Component {
-  constructor() {
-    super()
-    this.state = {
-      stocks: data
-    }
-  }
-
   render() {
-    let stocks = this.state.stocks.map((stock, i) => {
+    let stocks = this.props.stocks.map((stock, i) => {
+      let pathname = `/stocks/${stock.symbol}`
       return (
-        <Stock
-          i={i}
-          key={i}
-          name={stock.name}
-          symbol={stock.symbol}
-        />
+        <li key={i}>
+          {stock.name} (<Link to={{pathname, state: {selectedStock: stock}}}>
+                          {stock.symbol}
+                        </Link>)
+        </li>
       )
     })
     return (
-      <div>
+      <ul>
         {stocks}
-      </div>
+      </ul>
     )
   }
 }
