@@ -6,8 +6,8 @@ import {
   Redirect
 } from "react-router-dom"
 import './App.css';
-// import Dashboard from "./Dashboard"
-// import Stock from "./Stock"
+import Dashboard from "./Dashboard"
+import Stock from "./Stock"
 
 class App extends Component {
   constructor(props){
@@ -34,7 +34,10 @@ class App extends Component {
               path="/Home"
               render={()=> {
                 return(
-                  <h2>Home</h2>
+                  <div>
+                    <Route path="/Home" render={()=> <Dashboard stocks={this.state.stocks}/>}/>
+                    <Route path="/stocks/:symbol" Component={Stock}/>
+                  </div>
                 )
               }}
             />
