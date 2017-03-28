@@ -6,8 +6,8 @@ import {
     Link
 } from 'react-router-dom'
 import StockList from './StockList'
-import StockShow from "./StockShow";
-
+import StockShow from './StockShow'
+import Search from './Search.js'
 
 class App extends Component {
     constructor(props){
