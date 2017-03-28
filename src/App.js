@@ -6,8 +6,10 @@ import {
   Redirect
 } from "react-router-dom"
 import About from './About'
-import Home from './Home'
+import  Dashboard from './Dashboard'
 import './App.css';
+
+
 
 
 class App extends Component {
@@ -29,19 +31,19 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <nav>
+          <nav className="nav">
             <h1>iStocks</h1>
             <p>
-            <Link to="/"> Home</Link>
+            <Link to="/dashboard"> Home</Link>
             <Link to="/about"> About</Link>
             </p>
           </nav>
           <main>
             <Route
-              path="/"
+              path="/dashboard"
               render={() => {
                 return(
-                  <Home
+                  <Dashboard
                     stockData={this.state.stockData}
                   />
                 )
@@ -52,6 +54,13 @@ class App extends Component {
                 path="/about" render={() =>
                 <About/>
               }/>
+
+              <Route
+              path="*"
+              render={() => {
+                return <Redirect to='/Dashboard' />
+              }}
+            />
           </main>
         </div>
       </Router>

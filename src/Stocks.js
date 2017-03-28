@@ -6,6 +6,9 @@ class Stock extends Component {
   }
   render() {
     return(
+      <div>
+        <h2>Yalla</h2>
+      </div>
     )
   }
 }
