@@ -6,6 +6,7 @@ import {
     Link,
     Redirect
 } from 'react-router-dom'
+import StockList from './StockList'
 
 
 class App extends Component {
@@ -21,6 +22,7 @@ class App extends Component {
                     <Link to="/home"> Home </Link> {'\u00A0'} | {'\u00A0'}
                     <Link to="/about"> About </Link>
                 </nav>
+                <StockList />
             </div>
         </Router>
 
