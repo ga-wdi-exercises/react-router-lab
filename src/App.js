@@ -9,6 +9,7 @@ import axios from "axios"
 import Dashboard from "./Dashboard"
 import About from "./About"
 import Stock from "./Stock"
+import Search from "./Search"
 import './App.css';
 
 class App extends Component {
@@ -32,6 +33,7 @@ class App extends Component {
           <nav>
             <Link to="/">Home</Link>
             <Link to="/about">About</Link>
+            <Link to="/search">Search</Link>
           </nav>
 
           <Route exact path="/"
@@ -52,6 +54,14 @@ class App extends Component {
 
           <Route path="/stocks/:symbol"
             component={Stock}
+          />
+
+          <Route path="/search"
+            render={() =>
+              <Search
+
+              />
+            }
           />
 
         </div>
