@@ -5,20 +5,32 @@ class Stock extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      stock: this.props.location.state.active
+      stock: this.props.location.state.active,
+      apiStock: {}
     }
   }
+
+    componentDidMount(){
+      let url = "http://dev.markitondemand.com/Api/v2/Quote/jsonp?symbol=" + this.state.stock.symbol
+      $.ajax({
+        url,
+        method: "GET",
+        dataType: "jsonp"
+      }).then((response) => {
+        this.setState({ apiStock: response })
+      })
+    }
 
   render() {
     return(
       <div>
-        <h2>{this.state.stock.name} ({this.state.stock.symbol})</h2>
+        <h2>{this.state.apiStock.Name} ({this.state.apiStock.Symbol})</h2>
         <ul>
-          <li>Last Price: {this.state.stock.lastPrice}</li>
-          <li>Change: {this.state.stock.change}</li>
-          <li>High: {this.state.stock.high}</li>
-          <li>Low: {this.state.stock.low}</li>
-          <li>Open: {this.state.stock.open}</li>
+          <li>Last Price: {this.state.apiStock.LastPrice}</li>
+          <li>Change: {this.state.apiStock.Change}</li>
+          <li>High: {this.state.apiStock.High}</li>
+          <li>Low: {this.state.apiStock.Low}</li>
+          <li>Open: {this.state.apiStock.Open}</li>
         </ul>
       </div>
     )
