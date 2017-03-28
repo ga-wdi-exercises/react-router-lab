@@ -1,0 +1,9 @@
+<div>
+  <h1>stock={this.state.name}</h1>
+  <li>stock={this.state.symbol}</li>
+  <li>stock={this.state.lastPrice}</li>
+  <li>stock={this.state.change}</li>
+  <li>stock={this.state.high}</li>
+  <li>stock={this.state.low}</li>
+  <li>stock={this.state.open</li>}
+</div>
