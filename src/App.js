@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import {
   BrowserRouter as Router,
   Route,
-  Link
+  Link,
+  Redirect
 } from "react-router-dom"
 import './App.css';
 import Home from './Home.js'
@@ -37,6 +38,12 @@ class App extends Component {
               path="/About"
               render={() => {
                 return <About/>
+              }}
+              />
+              <Route
+              path="/*"
+              render={() => {
+                return <Redirect to="/Home" />
               }}
               />
       </main>
