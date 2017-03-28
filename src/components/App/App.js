@@ -10,6 +10,7 @@ import {
 
 //Components
 import Dashboard from '../Dashboard/Dashboard.js'
+import Stock from '../Stock/Stock.js'
 
 //Seed Data
 import stockData from '../../../data/stock-data.json'
@@ -56,6 +57,15 @@ class App extends Component {
                     <h1>Follow Your Stocks</h1>
                     <p>It is important to keep track of your stock. Our application helps you to do so.</p>
                   </div>
+                )
+              }}
+            />
+            <Route
+              path="/stocks/:symbol"
+              render={() => {
+                return(
+                  <Stock
+                  />
                 )
               }}
             />
