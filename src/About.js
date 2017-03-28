@@ -7,7 +7,7 @@ class About extends Component {
   render() {
     return(
       <div>
-        <h2>Look at this About Page</h2>
+        <h2>This App defies description, so don't even try!</h2>
       </div>
     )
   }

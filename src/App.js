@@ -50,11 +50,7 @@ class App extends Component {
           />
 
           <Route path="/stocks/:symbol"
-            render={() =>
-              <Stock
-
-              />
-            }
+            component={Stock}
           />
 
         </div>

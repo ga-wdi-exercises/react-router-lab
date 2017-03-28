@@ -10,8 +10,7 @@ class Dashboard extends Component {
       let pathname = `/stocks/${stock.symbol}`
       return (
         <li key={index}>
-          {stock.name}
-          (<Link to={{
+          {stock.name} (<Link to={{
             pathname,
             state: {active: stock}
           }}>
