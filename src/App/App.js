@@ -5,9 +5,9 @@ import {
   Link,
   Redirect
 } from "react-router-dom"
-import Dashboard from './Dashboard'
-import About from './About'
-import Stock from './Stock'
+import Dashboard from './Dashboard/Dashboard'
+import About from './About/About'
+import Stock from './Stock/Stock'
 import './App.css';
 
 class App extends Component {
