@@ -14,7 +14,7 @@ class App extends Component {
       <Router>
         <div>
           <nav>
-            <h1>Stalking My Stocks</h1>
+            <h1><a href="/">Stalking My Stocks</a></h1>
             <Link to="/home">Home</Link>
             <Link to="/about">About</Link>
           </nav>

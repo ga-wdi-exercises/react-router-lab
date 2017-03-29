@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Search from './Search'
 import Results from './Results'
+import {queryStocks} from './Utils'
 
 class SearchContainer extends Component {
   constructor(props){
@@ -8,6 +9,7 @@ class SearchContainer extends Component {
     this.state = {
       query: '',
       hasSearched: false,
+      stocks: [],
     }
   }
 
@@ -17,12 +19,21 @@ class SearchContainer extends Component {
     })
   }
 
+  handleToggleSearch (event) {
+    let hasSearched = !this.state.hasSearched
+    this.setState(Object.assign(this.state, {hasSearched, }))
+  }
+
   onSubmitQuery(event){
     event.preventDefault();
     console.log(this.state.query)
-    this.setState({
-      query: '',
-      hasSearched: true,
+    let component = this
+    queryStocks(this.state.query).then( data => {
+      component.setState({
+        query: '',
+        hasSearched: !component.state.hasSearched,
+        stocks: data,
+      })
     })
   }
 
