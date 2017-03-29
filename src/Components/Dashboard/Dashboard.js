@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Stock from "../Stock/Stock"
 
 
 class Dashboard extends Component {
