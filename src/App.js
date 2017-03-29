@@ -7,6 +7,7 @@ import {
 } from "react-router-dom"
 import './App.css';
 import Dashboard from './Components/dashboard.js'
+import About from './Components/about.js'
 
 class App extends Component {
   constructor(props){
@@ -90,7 +91,15 @@ class App extends Component {
                   />)
               }}
               />
-          </main>
+            <Route
+              path="/about"
+              render={() =>{
+                return(
+                  <About />
+                )
+              }}
+              />
+            </main>
         </div>
       </Router>
     )
