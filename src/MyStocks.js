@@ -11,30 +11,31 @@ import './App.css';
 
 
 class MyStocks extends Component {
-  constructor(props) {
-  super(props)
+//   constructor(props) {
+//   super(props)
+// }
+render() {
+  let stocks = this.props.stocks.map((stock, i) => {
+    let pathname = `/stocks/${stock.symbol}`
+    return <li className="stocks-stock" key={i}>
+             {stock.name} (<link to={{
+                              pathname,
+                              state: {selectedStock: stock}
+                            }}>
+                            {stock.symbol}
+                          </link>)
+           </li>
+  })
+  return (
+    <div className="stocks">
+      <h2>Stocks</h2>
+      <ul className="stocks-list">
+        {stocks}
+      </ul>
+    </div>
+  );
 }
-  render() {
-          let stocks = this.props.stocks.map((stock, i) => {
-            let pathname = '/stocks/${stock.symbol}'
-            return <li className="stocks-stock" key={i}>
-                       {stock.name} (<Link to={{
-                                        pathname,
-                                        state: {selectedStock: stock}
-                                      }}>
-                                      {stock.symbol}
-                                    </Link>)
-                     </li>
-            })
-            return (
-              <div className="stocks">
-                <h2>Stocks</h2>
-                <ul className="stocks-list">
-                  {stocks}
-                </ul>
-              </div>
-            );
-          }
+
         }
 
 export default MyStocks
