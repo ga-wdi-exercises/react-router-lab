@@ -19,9 +19,6 @@ class App extends Component {
       ]
     }
   }
-}
-
-class App extends Component {
   render() {
     return (
       <Router>
@@ -30,6 +27,10 @@ class App extends Component {
           <Link to="/">Home</Link>
           <Link to="/about">About</Link>
          </nav>
+          <main>
+           <Route exact path="/" render={() => <Dashboard stocks={this.state.stocks} />} />
+           <Route path="/about" component={About} />
+          </main>
         </div>
       </Router>
     );
