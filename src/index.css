@@ -1,0 +1,40 @@
+body{
+  background-color: gray;
+}
+header{
+  background-image: url('../public/header.jpg');
+  background-position: center;
+  background-size: cover;
+  height: 200px;
+  width: 100%;
+  margin-top: -8px;
+}
+header>h1{
+  text-align: center;
+}
+nav{
+  background-color: black;
+  text-align: center;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+nav > a{
+  color: white;
+}
+
+a:hover{
+  color: red;
+}
+
+.dashboard, .showStock{
+  text-align: center;
+}
+
+.dashboard>li, .showStock>li{
+  text-align: justify;
+  margin-left: 42%;
+}
