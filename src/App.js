@@ -8,6 +8,7 @@ import {
 import './App.css';
 import Dashboard from './Components/dashboard.js'
 import About from './Components/about.js'
+import Stock from './Components/stock.js'
 
 class App extends Component {
   constructor(props){
@@ -99,6 +100,11 @@ class App extends Component {
                 )
               }}
               />
+              <Route
+                path="/stocks/:symbol"
+                component={Stock}
+              />
+
             </main>
         </div>
       </Router>
