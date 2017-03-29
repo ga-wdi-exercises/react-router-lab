@@ -9,25 +9,30 @@ class Stock extends Component {
     super(props)
     this.state = {
       stock: this.props.location.state.selectedStock
+    }
 
   }
+
+  render(){
+    return(
+      <div>
+        <h2>{this.state.stock.name}: {this.state.stock.symbol}</h2>
+        <ul>
+          <li>Current Price: {this.state.stock.lastPrice}</li>
+          <li>Change: {this.state.stock.change}%</li>
+          <li>High: {this.state.stock.high}</li>
+          <li>Low: {this.state.stock.low}</li>
+          <li>Open: {this.state.stock.open}</li>
+        </ul>
+      </div>
+    )
+  }
+
 }
 
-render(){
-  return(
-    <div>
-      <h2>Hello</h2>
-      <ul>
-        <li>Current Price: </li>
-        <li>Change: </li>
-        <li>High: </li>
-        <li>Low: </li>
-      </ul>
-    </div>
-  )
-}
 
-}
+
+
 
 
 

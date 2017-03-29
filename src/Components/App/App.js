@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import Dashboard from "../Dashboard/Dashboard.js"
+import Dashboard from "../Dashboard/Dashboard"
+import Stock from "../Stock/Stock"
 import {
   BrowserRouter as Router,
   Route,
@@ -33,7 +34,8 @@ class App extends Component {
             <div className="nav-item"><Link to="/search">Search</Link></div>
           </div>
           <div className="main">
-            <Route exact path="/" render={() => <Dashboard stocks={this.state.stocks} />} />
+            <Route exact path="/" render={() => <Dashboard stocks={this.state.stocks} />}/>
+            <Route path="/stocks/:symbol" component={Stock} />
           </div>
 
 

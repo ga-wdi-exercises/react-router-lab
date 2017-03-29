@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import Stock from "../Stock/Stock"
+import { Link } from "react-router-dom"
+
 
 
 class Dashboard extends Component {
@@ -8,7 +9,13 @@ class Dashboard extends Component {
   }
   render(){
     let stocks = this.props.stocks.map((stock, index) => {
-      return <h4 key={index}>{stock.name} ({stock.symbol})</h4>
+      let pathname = `/stocks/${stock.symbol}`
+      return <h4 key={index}>{stock.name} (<Link to={{
+                                pathname,
+                                state: {selectedStock: stock}
+                              }}>
+                              {stock.symbol}
+                            </Link>)</h4>
     })
     return(
     <div>
