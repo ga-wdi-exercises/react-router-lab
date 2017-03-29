@@ -1,31 +1,16 @@
 import React, { Component } from 'react'
 
 class Search extends Component {
-  constructor(props){
-    this.state = {
-      query: ''
-    }
-  }
-  handleSearchInput (event) {
-    this.setState({
-      query: event.target.value
-    })
-  }
-
-  submitQuery(event){
-    event.preventDefault();
-    console.log("this.state.query");
-  }
-
   render(){
+    let {handleSearchInput, handleSubmitQuery, query} = this.props
     return (
       <div className='searchBox'>
-        <form onSubmit={(event) => this.submitQuery(event)}>
+        <form onSubmit={(event) => handleSubmitQuery(event)}>
           <input
-            onChange={(event) => this.handleSearchInput(event)}
-            value={this.state.query}
+            onChange={(event) => handleSearchInput(event)}
+            value={query}
             type="text"
-            placeholder="Enter Stock Code..." />
+            placeholder="Enter Stock Symbol..." />
           <button type="submit">Search</button>
         </form>
       </div>

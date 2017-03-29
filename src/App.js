@@ -5,7 +5,7 @@ import {
   Link,
   Redirect
 } from "react-router-dom"
-import Search from './Search.js'
+import SearchContainer from './SearchContainer.js'
 import './App.css';
 
 class App extends Component {
@@ -19,7 +19,7 @@ class App extends Component {
             <Link to="/about">About</Link>
           </nav>
           <main>
-            <Search />
+            <SearchContainer />
           </main>
         </div>
       </Router>
