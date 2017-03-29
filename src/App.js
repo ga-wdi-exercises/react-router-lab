@@ -6,6 +6,7 @@ import {
   Redirect
 } from "react-router-dom"
 import Dashboard from "./Components/Dashboard.js"
+import Stock from "./Components/Stock.js"
 import './App.css';
 
 class App extends Component {
@@ -39,6 +40,14 @@ class App extends Component {
               render={() => {
                 return(
                   <Dashboard stocks={this.state.data} />
+                )
+              }}
+            />
+            <Route
+              path="/stocks/:symbol"
+              render={() => {
+                return(
+                  <Stock />
                 )
               }}
             />
