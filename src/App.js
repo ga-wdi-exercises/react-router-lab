@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import axios from 'axios'
 import './App.css'
 import Dashboard from './Dashboard'
 import About from './About'
@@ -27,7 +26,7 @@ class App extends Component {
     <Router>
       <div>
         <div className="nav">
-          <div> IM IN THE NAV DIV IN ROUTER UNDER RETURN INSIDE RENDER </div>
+          <div> GIRO: IM IN THE NAV DIV IN ROUTER UNDER RETURN INSIDE RENDER </div>
           <div className="nav-item"><span className="nav-logo">iStocks</span></div>
           <div className="nav-item"><Link to="/">Home</Link></div>
           <div className="nav-item"><Link to="/about">About</Link></div>
