@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import {BrowserRouter as Router, Redirect, Route, Link} from "react-router-dom"
-// import Dashboard from "./Dashboard"
+import Dashboard from "./Dashboard"
 import About from "./About"
 import Stock from "./Stock"
 import "./App.css"
@@ -20,20 +20,23 @@ class App extends Component {
     }
   }
   render() {
+
     return (
       <Router>
         <div>
+
           <div>
-            <Link to="/stocks">Home</Link><br/>
-            <Link to="/about">About</Link>
+            <Link to="/stocks">Home</Link> || <Link to="/about">About</Link>
           </div>
 
           <main>
             <Route path="/about" component={About} />
             <Route path="/stocks/:symbol" component={Stock} />
-            <Route path="/*" render={() => {return <Redirect to="/stocks"/>}}/>
+            <Route path="/*" render={() => <Dashboard stocks={this.state.stocks} />} />
           </main>
+
         </div>
+
       </Router>
     );
   }
