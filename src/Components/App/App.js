@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import {
   BrowserRouter as Router,
   Route,
-  Link,
-  Redirect
+  Link
 } from "react-router-dom"
 import './App.css';
 import StockList from '../Stock/StockList.js';
