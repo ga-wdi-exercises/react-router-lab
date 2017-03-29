@@ -1,5 +1,6 @@
 import React, { Component} from 'react'
 import './Dashboard.css'
+import '../About/About.js'
 
 class Dashboard extends Component {
   constructor(props){

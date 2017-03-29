@@ -8,6 +8,7 @@ import {
 } from "react-router-dom"
 import './App.css';
 import Dashboard from '../Dashboard/Dashboard.js'
+import About from '../About/About.js'
 
 class App extends Component {
   constructor(props){
@@ -87,6 +88,14 @@ class App extends Component {
             render={()=> {
               return(
                 <Dashboard stocks={this.state.stocks}/>
+              )
+            }}
+            />
+          <Route
+            path="/about"
+            render={() => {
+              return(
+                <About/>
               )
             }}
             />
