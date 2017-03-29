@@ -1,12 +1,25 @@
 import React, {Component} from 'react'
-
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  Redirect
+} from "react-router-dom"
 
 class Dashboard extends Component {
   render(){
     var list = this.props.data.map((data, index) => {
+      var pathname = `/stocks/${data.symbol}`
       return(
         <div key={index}>
-          <p>{data.name} ({data.symbol})</p>
+          <p>{data.name}
+            (<Link to={{
+                pathname,
+                state: {selectedStock: data}
+              }}>
+            {data.symbol}
+          </Link>)
+          </p>
         </div>
       )
     })
