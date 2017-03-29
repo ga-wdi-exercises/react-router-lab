@@ -1,6 +1,6 @@
 You are welcome to use the following as starter HTML templates and styles for your components...
 
-#### Navigation
+<!-- #### Navigation
 
 ```html
 <div className="nav">
@@ -35,7 +35,7 @@ You are welcome to use the following as starter HTML templates and styles for yo
   text-decoration: none;
   color: white;
   font-weight: bold;
-}
+} -->
 ```
 
 #### Dashboard
