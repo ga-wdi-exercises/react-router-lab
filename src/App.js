@@ -5,13 +5,23 @@ import {
   Link,
   Redirect
 } from "react-router-dom"
+import Search from './Search.js'
 import './App.css';
 
 class App extends Component {
   render() {
     return (
       <Router>
-        <div></div>
+        <div>
+          <nav>
+            <h1>Stalking My Stocks</h1>
+            <Link to="/home">Home</Link>
+            <Link to="/about">About</Link>
+          </nav>
+          <main>
+            <Search />
+          </main>
+        </div>
       </Router>
     );
   }
