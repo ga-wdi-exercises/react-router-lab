@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import {
   BrowserRouter as Router,
   Route,
-  Link,
-  Redirect
+  Link
 } from "react-router-dom"
 import './App.css';
 
@@ -21,6 +20,7 @@ let stocks = [
 ]
 
 class App extends Component {
+
   render() {
     return (
       <Router>
@@ -50,12 +50,8 @@ class App extends Component {
               }}
             />
             <Route
-              path="stocks/:symbol"
-              render={() => {
-                return(
-                  <StockShow />
-                )
-              }}
+              path="/stocks/:symbol"
+              component={StockShow}
             />
           </main>
         </div>

@@ -1,24 +1,18 @@
 import React, {Component} from 'react'
-import {
-  BrowserRouter as Router,
-  Route,
-  Link,
-  // Redirect
-} from "react-router-dom"
+
 
 class StockShow extends Component {
   constructor(props){
     super(props)
     this.state = {
-      stock: this.props.stockPick
+      stockPick: this.props.location.state.stockPick
     }
   }
   render(){
-    // console.log(this.props.params.symbol);
-    return(
 
+    return(
       <div>
-        <h3>Stock Show</h3>
+        <h3>{this.state.stockPick.name}</h3>
       </div>
     )
   }

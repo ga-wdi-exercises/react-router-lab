@@ -1,15 +1,9 @@
 import React, {Component} from 'react'
-import Stock from './Stock.js'
+import Stock from './Stock'
 
 class Home extends Component {
-  constructor(props){
-    super()
-    this.state = {
 
-    }
-  }
   render() {
-    console.log(this.props.stocks);
     let stocks = this.props.stocks.map( (stock, index) => (
       <Stock stock={stock} key={index} />
     ))
