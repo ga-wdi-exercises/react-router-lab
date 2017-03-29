@@ -1,32 +1,92 @@
 import React, { Component } from 'react'
-import { Link } from "react-router-dom"
-import "./Dashboard.css"
+import axios from 'axios'
 
-class Dashboard extends Component {
-  constructor(props){
+class Results extends Component {
+  constructor(props) {
     super(props)
+    this.state = {
+      translation: this.props.translation,
+      voiceOptions: [],
+      selectedVoice: null,
+      textPronunciation: null,
+      audioPronunciationSource: null
+    }
+  }
+  componentDidMount() {
+    this.props.clearSearch()
+    this.getVoiceOptions()
+  }
+  getVoiceOptions() {
+    axios.get('https://watson-api-explorer.mybluemix.net/text-to-speech/api/v1/voices')
+      .then((response) => {
+        this.setState({
+          voiceOptions: response.data.voices
+        })
+      })
+  }
+  setVoice(e) {
+    this.setState({
+      selectedVoice: e.target.value
+    })
+  }
+
+  getTextPronunciation() {
+    axios.get('https://watson-api-explorer.mybluemix.net/text-to-speech/api/v1/pronunciation', {
+      params: {
+        text: this.state.translation,
+        voice: this.state.selectedVoice
+      }
+    })
+    .then((response) => {
+      this.setState({
+        textPronunciation: response.data.pronunciation
+      })
+    })
+    .catch((error) => {
+      console.log(error)
+    })
+  }
+
+  getAudioPronunciation() {
+    this.setState({
+      audioPronunciationSource: `https://watson-api-explorer.mybluemix.net/text-to-speech/api/v1/synthesize?text=${this.state.translation}&voice=${this.state.selectedVoice}`
+    })
+  }
+
+  getPronunciations(e) {
+    e.preventDefault()
+    this.getTextPronunciation()
+    this.getAudioPronunciation()
   }
   render() {
-    let stocks = this.props.stocks.map((stock, i) => {
-      let pathname = `/stocks/${stock.symbol}`
-      return <li className="stocks-stock" key={i}>
-               {stock.name} (<Link to={{
-                                pathname,
-                                state: {selectedStock: stock}
-                              }}>
-                              {stock.symbol}
-                            </Link>)
-             </li>
+    let voices = this.state.voiceOptions.map((voice, index) => {
+      return <option value={voice.name} key={index}>{voice.name}</option>
     })
-    return (
-      <div className="stocks">
-        <h2>Stocks</h2>
-        <ul className="stocks-list">
-          {stocks}
-        </ul>
+    let audio =
+      this.state.audioPronunciationSource?
+      <audio controls>
+        <source type="audio/ogg" src={this.state.audioPronunciationSource}/>
+      </audio> :
+      null
+
+    return(
+      <div>
+        <h3>Translation: </h3>
+        <p>{this.state.translation}</p>
+
+        <h3>Pronunciation:</h3>
+        <form onSubmit={(e) => this.getPronunciations(e)} >
+          <p>Choose Voice</p>
+          <select onChange={(e) => this.setVoice(e)}>
+            {voices}
+          </select>
+          <input type="submit" value="Select Voice"/>
+        </form>
+        <p>{this.state.textPronunciation}</p>
+        <p>{audio}</p>
       </div>
-    );
+    )
   }
 }
 
-export default Dashboard;
+export default Results

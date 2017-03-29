@@ -1,13 +1,12 @@
-import React, { Component } from 'react'
-import {
-  BrowserRouter as Router,
-  Route,
-  Link
-} from "react-router-dom"
-import Dashboard from "./Dashboard"
-import About from "./About"
-import Stock from "./Stock"
-import "./App.css"
+import React, { Component } from 'react';
+// import axios from 'axios'
+import './App.css'
+import Dashboard from './Dashboard'
+import About from './About'
+import Stock from './Stock'
+import './App.css'
+
+
 
 class App extends Component {
   constructor(props){
@@ -24,24 +23,25 @@ class App extends Component {
     }
   }
   render() {
-    return (
-      <Router>
-        <div>
-          <div className="nav">
-            <div className="nav-item"><span className="nav-logo">iStocks</span></div>
-            <div className="nav-item"><Link to="/">Home</Link></div>
-            <div className="nav-item"><Link to="/about">About</Link></div>
-          </div>
-
-          <div className="main">
-            <Route exact path="/" render={() => <Dashboard stocks={this.state.stocks} />} />
-            <Route path="/about" component={About} />
-            <Route path="/stocks/:symbol" component={Stock} />
-          </div>
+  return (
+    <Router>
+      <div>
+        <div className="nav">
+          <div> IM IN THE NAV DIV IN ROUTER UNDER RETURN INSIDE RENDER </div>
+          <div className="nav-item"><span className="nav-logo">iStocks</span></div>
+          <div className="nav-item"><Link to="/">Home</Link></div>
+          <div className="nav-item"><Link to="/about">About</Link></div>
         </div>
-      </Router>
-    );
-  }
+
+        <div className="main">
+          <Route exact path="/" render={() => <Dashboard stocks={this.state.stocks} />} />
+          <Route path="/about" component={About} />
+          <Route path="/stocks/:symbol" component={Stock} />
+        </div>
+      </div>
+    </Router>
+  );
+}
 }
 
 export default App;
