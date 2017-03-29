@@ -8,6 +8,7 @@ import {
 import './App.css';
 import Dashboard from './components/Dashboard.js'
 import Stock from './components/Stock.js'
+import About from './components/About.js'
 import data from '../data/stock-data.json'
 
 class App extends Component {
@@ -31,6 +32,7 @@ class App extends Component {
           <div className="main">
             <Route exact path="/" render={() => <Dashboard data={this.state.data} />} />
             <Route path="/stocks/:symbol" component={Stock} />
+            <Route path="/about" component={About} />
           </div>
         </div>
       </Router>
