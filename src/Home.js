@@ -1,19 +1,23 @@
 import React, { Component } from 'react';
-import myData from '../data/stock-data.json'
+import {Link} from "react-router-dom"
 
 class Home extends Component {
-  constructor(props){
-    super(props)
-  }
   render() {
+
+      let stocks = this.props.stocks.map((stock, i) => {
+      return (
+        <li key={i}>{stock.name} {stock.symbol}
+        </li>
+      )
+    })
     return(
-      <div className="stocks">
-        <h2>Stocks</h2>
-        <ul className="stocks-list">
-          <li>{this.props.name}</li>
-        </ul>
+      <div>
+      <ul>
+      {stocks}
+      </ul>
       </div>
     )
+
   }
 }
 

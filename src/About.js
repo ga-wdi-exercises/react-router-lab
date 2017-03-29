@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class About extends Component {
   render() {
     return(
-      <p>Stock Market Portfolio</p>
+      <p>Stock Market Portfolio App</p>
     )
   }
 }

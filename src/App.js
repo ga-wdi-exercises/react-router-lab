@@ -9,8 +9,15 @@ import './App.css';
 import Home from './Home.js'
 import Search from './Search.js'
 import About from './About.js'
+import myData from '../data/stock-data.json'
 
 class App extends Component {
+  constructor(props){
+    super(props)
+    this.state ={
+      stocks: myData
+    }
+  }
   render() {
     return (
       <Router>
@@ -25,7 +32,7 @@ class App extends Component {
         <Route
           path="/Home"
           render={() => {
-            return <Home/>
+            return <Home stocks={this.state.stocks}/>
           }}
           />
           <Route
