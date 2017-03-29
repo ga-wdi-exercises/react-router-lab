@@ -2,8 +2,18 @@ import React, { Component } from 'react'
 
 class Dashboard extends Component {
   render(){
+    var print = this.props.stocks.map((stock, index) => {
+      return(
+        <div key={index}>
+          <p>{stock.name} ({stock.symbol})</p>
+        </div>
+      )
+    })
     return(
-      <h1>I am the dashboard</h1>
+      <div>
+      <h1>Dashboard</h1>
+      <div>{print}</div>
+      </div>
     )
   }
 }
