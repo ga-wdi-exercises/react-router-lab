@@ -12,7 +12,7 @@ class Dashboard extends Component {
       let pathname = `/stocks/${stock.symbol}`
       return(
         <div key={index}>
-          <p>{stock.name}
+          <p>{stock.name} &nbsp;
             <Link to={{
               pathname,
               state: {selected: stock}
