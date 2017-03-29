@@ -7,6 +7,7 @@ import {
 } from "react-router-dom"
 import Dashboard from "./Components/Dashboard.js"
 import Stock from "./Components/Stock.js"
+import About from "./Components/About.js"
 import './App.css';
 import data from '../data/stock-data.json'
 
@@ -40,6 +41,10 @@ class App extends Component {
             <Route
               path="/stocks/:symbol"
               component={Stock}
+            />
+            <Route
+              path="/about"
+              component={About}
             />
           </main>
         </div>
