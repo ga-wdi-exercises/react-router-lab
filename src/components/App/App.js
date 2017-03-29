@@ -13,10 +13,12 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <nav>
-            <Link to="/">Home</Link>
-            <Link to="/about">About</Link>
-          </nav>
+          <div className="nav">
+          <div className="nav-item"><span className="nav-logo">iStocks</span></div>
+          <div className="nav-item"><Link to="/">Home</Link></div>
+          <div className="nav-item"><Link to="/search">Search</Link></div>
+          <div className="nav-item"><Link to="/about">About</Link></div>
+        </div>
           
         </div>
       </Router>
