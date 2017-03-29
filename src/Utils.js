@@ -1,4 +1,5 @@
 import $ from 'jquery'
+import data from '../data/stock-data.json'
 
 export function queryStocks (query) {
 var source = '../data/stock-data.json'
