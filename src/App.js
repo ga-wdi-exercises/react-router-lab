@@ -7,6 +7,7 @@ import {
 } from "react-router-dom"
 import './App.css';
 import Dashboard from './Dashboard.js'
+import Stock from './Stock.js'
 
 class App extends Component {
   constructor(props){
@@ -21,10 +22,7 @@ class App extends Component {
         {name: "Intel Corporation", symbol: "INTL", lastPrice: 36.16, change: -0.370000000000005, high: 36.78, low: 36.125, open: 36.58}
       ]
     }
-  }  
-
-
-
+  }
   render() {
     return (
       <Router>
@@ -40,13 +38,14 @@ class App extends Component {
           <main>
 
             <Route
-            path='/'
+            exact path='/'
               render={() => {
                 return (
-                  <Dashboard />
+                  <Dashboard stocks = {this.state.stocks} />
                 )
               }}
             />
+            <Route path='/stocks/:symbol'/>
 
 
 
