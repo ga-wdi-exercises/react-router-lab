@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import {
-  BrowserRouter as Router,
-  Route,
-  Link,
-  Redirect
-} from "react-router-dom"
+       BrowserRouter as Router,
+       Route,
+       Link,
+       Redirect
+       } from "react-router-dom"
 import Dashboard from "./Dashboard/Dashboard.js"
 import Stock from "./Stock/Stock.js"
 import About from "./About/About.js"
@@ -32,6 +32,22 @@ class App extends Component {
             <Link to="/">Home</Link>
             <Link to="/about">About</Link>
           </nav>
+          <main>
+            <Route
+              exact path="/"
+              render={() =>
+                <Dashboard stocks={this.state.stocks}
+              />}
+            />
+            <Route
+              path="/about"
+              component={About}
+            />
+            <Route
+              path="/stocks/:symbol"
+              component={Stock}
+            />
+          </main>
         </div>
       </Router>
     );
