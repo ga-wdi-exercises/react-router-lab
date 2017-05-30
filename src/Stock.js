@@ -10,9 +10,9 @@ class Stock extends Component {
     return (
       <div>
         <h2>{this.state.stock.name} - {this.state.stock.symbol}</h2>
-        <p>{this.state.stock.lastPrice}</p>
-        <p>{this.state.stock.low}</p>
-        <p>{this.state.stock.high}</p>
+        <p>Last Price: {this.state.stock.lastPrice}</p>
+        <p>Low Price: {this.state.stock.low}</p>
+        <p>High Price: {this.state.stock.high}</p>
       </div>
     );
   }

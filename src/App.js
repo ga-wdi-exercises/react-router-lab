@@ -36,7 +36,7 @@ class App extends Component {
           </div>
 
           <div className="body">
-            <Route path="/" render={()=> <Dashboard stocks={this.state.stocks} />} />
+            <Route exact path="/" render={()=> <Dashboard stocks={this.state.stocks} />} />
             <Route path="/about" component={About} />
             <Route path="/stocks/:symbol" component={Stock} />
           </div>
