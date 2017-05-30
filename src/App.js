@@ -5,12 +5,17 @@ import {
   Link,
   Redirect
 } from "react-router-dom"
+import stockData from "../data/stock-data"
 import './App.css';
 
 class Home extends Component {
   render() {
     return(
-      <div>Home</div>
+      <div>
+        {stockData.map ((stock, index) => (
+            <h2 key={index}>{stock.name} {stock.symbol}</h2>
+        ))}
+      </div>
     )
   }
 }
