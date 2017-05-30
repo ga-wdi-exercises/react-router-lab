@@ -6,8 +6,9 @@ import {
   Redirect
 } from "react-router-dom"
 import './App.css';
-import stockData from "../data/stock-data"
+
 import Dashboard from "./dashboard"
+
 
 
 
@@ -20,7 +21,7 @@ class App extends Component {
         <p>Navbar</p>
           <nav>
               <div><Link to="/dashboard">Home</Link></div>
-              <div><Link to="/search">Search</Link></div>
+              <div><Link to="/about">About</Link></div>
            </nav>
            <main>
             <Route
