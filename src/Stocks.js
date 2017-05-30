@@ -1,20 +1,17 @@
 import React, { Component } from 'react'
 import {
-  BrowserRouter as Router,
-  Route,
-  Link,
-  Redirect
+  Link
 } from "react-router-dom"
+import stockData from '../data/stock-data.json'
 
 
 class Stocks extends Component {
 	render() {
-		let {stocks} = this.props
-		console.log(stocks)
-		let stocksResult = stocks.map( (stock, index) => {
+		let stocksResult = stockData.map( (stock, index) => {
+			let pathname=`/stocks/${stock.symbol}`
 			return (
 			<div key={index} >
-				<h3><bold>{stock.name}</bold> - {stock.symbol}</h3>
+				<Link to={pathname} ><bold>{stock.name}</bold> - {stock.symbol}</Link>
 			</div>
 			)
 		})

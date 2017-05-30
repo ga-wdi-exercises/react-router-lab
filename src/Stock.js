@@ -2,9 +2,11 @@ import React, { Component } from 'react'
 
 class Stock extends Component {
 	render() {
-		console.log(this.props.params)
+		let stock = this.props.match.params.symbol
 		return (
-			<h3>Individual Stock</h3>
+			<div>
+				<h3>{stock}</h3>	
+			</div>
 		)
 	}
 }
