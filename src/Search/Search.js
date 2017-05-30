@@ -45,7 +45,7 @@ class Search extends Component {
     let searchResult = this.state.searchStock.Name
                           ? (<div>
                               {this.state.searchStock.Name} ({this.state.searchStock.Symbol})
-                              <button onClick={ (e) => this.handleTrackStock(e) }>Tracking Stock</button>
+                              <button onClick={ (e) => this.handleTrackStock(e) }>Track Stock</button>
                             </div>)
                           : null
     return (
