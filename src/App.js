@@ -5,11 +5,12 @@ import {
        Link,
        Redirect
        } from "react-router-dom"
-// import axios from "axios"
+import axios from "axios"
 import Dashboard from "./Dashboard/Dashboard.js"
 import Stock from "./Stock/Stock.js"
 import About from "./About/About.js"
-import './App.css';
+import Search from "./Search/Search.js"
+// import './App.css';
 
 class App extends Component {
   constructor(props){
@@ -25,6 +26,22 @@ class App extends Component {
       ],
       hasTracked: false
     }
+    this.handleTrackedState = this.handleTrackedState.bind(this)
+  }
+  componentStocks(){
+    axios.get("http://localhost:3000/stocks").then((response) => {
+      this.setState({
+        stocks: response.data
+      })
+    })
+  }
+  handleTrackedState(newStock) {
+    let tempArray = this.state.stocks
+    tempArray.push(newStock)
+    this.setState({
+      stocks: tempArray,
+      hasTracked: true
+    })
   }
   render() {
     return (
@@ -33,6 +50,7 @@ class App extends Component {
           <nav>
             <Link to="/">Home</Link>
             <Link to="/about">About</Link>
+            <Link to="/search">Search</Link>
           </nav>
           <main>
             <Route
@@ -49,6 +67,12 @@ class App extends Component {
               path="/stocks/:symbol"
               component={Stock}
             />
+            <Route path="/search" render={() => {
+              if(this.state.hasTracked){
+                return <Redirect to="/" />
+              }
+              return <Search handleTrackedState={this.handleTrackedState} />
+            }} />
           </main>
         </div>
       </Router>
