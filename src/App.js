@@ -11,7 +11,23 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div></div>
+        <div>
+        <nav>
+          <h2>Stock Data</h2>
+          <div>
+            <Link to="/">Home</Link>
+            <Link to="/About">About</Link>
+          </div>
+        </nav>
+        </div>
+        <main>
+        <Route
+        path="/"
+        render={() => {
+
+        }}
+        />
+        </main>
       </Router>
     );
   }
