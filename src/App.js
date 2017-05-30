@@ -19,19 +19,17 @@ class App extends Component {
             <Link to="/stocks">Stocks</Link>
             <Link to="/about">About</Link>
           </nav>
-        <Route path="/" render={() => {
-          return <Redirect to="/stocks" />
-        }} />
-        <Route path="/stocks" render={() => {
-          return (
-            <Stocks />
-          )
-        }} />
-        <Route path="/about" render={() => {
-          return (
-            <About />
-          )
-        }} />
+          <main className="main">
+            <Route path="/" render={() => {
+              return <Redirect to="/stocks" />
+            }} />
+            <Route path="/stocks" render={() => {
+              return (
+                <Stocks stocks={this.props.stocks} />
+              )
+            }} />
+            <Route path="/about" component={About} />
+          </main>
         </div>
       </Router>
     );
