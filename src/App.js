@@ -11,7 +11,16 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div></div>
+        <div>
+          <nav>
+            <Link to=""></Link>
+            <Link to=""></Link>
+          </nav>
+          <main>
+            <Route path="" render={}/>
+            <Route path="" render={}/>
+          </main>
+        </div>
       </Router>
     );
   }
