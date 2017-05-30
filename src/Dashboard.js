@@ -1,12 +1,28 @@
 import React, { Component } from 'react'
-class About extends Component {
+import { Link } from "react-router-dom"
+
+class Dashboard extends Component {
   constructor(props){
     super(props)
   }
   render() {
+    let stocks = this.props.stocks.map((stock, i)=>{
+      let pathname = `/stocks/$(stock.symbol)`
+      return <li className="stock" key={i}>
+        {stock.name} (<Link to={{
+          pathname,
+          state: {selectedStock: stock}
+        }}>
+        {stock.symbol}
+        </Link>) 
+      </li>
+    })
     return (
-      <div>
-        <h2>Dashboard will be here.</h2>
+      <div className="all-stocks">
+        <h2>All Stocks</h2>
+        <ul className="all=stocks-list">
+          {stocks}
+        </ul>
       </div>
     );
   }
