@@ -7,7 +7,7 @@ class About extends Component {
   render() {
     return (
       <div>
-        <h2>About will be here.</h2>
+        <p>To view price history for selected stocks. Designed by Whitney using ReactJS.</p>
       </div>
     );
   }
