@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import stockData from '../data/stock-data.json'
 import axios from 'axios'
 
-class Stock extends Component {
+class Search extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -10,9 +10,11 @@ class Stock extends Component {
 			stockSymbol: this.props.match.params.symbol
 		}
 	}
+	
 	componentDidMount() {
 		axios.get(`http://finance.google.com/finance/info?client=ig&q=NASDAQ%3A${this.state.stockSymbol}`).then((response) => {
 			let blah = JSON.parse(response.data.slice(3));
+			console.log(blah)
 			this.setState({
 				stockDataAPI: JSON.parse(response.data.slice(3))
 			})
@@ -40,4 +42,4 @@ class Stock extends Component {
 	}
 }
 
-export default Stock
+export default Search

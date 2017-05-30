@@ -9,6 +9,7 @@ import './App.css';
 import About from './About.js'
 import Stocks from './Stocks.js'
 import Stock from './Stock.js'
+import SearchContainer from './SearchContainer.js'
 
 class App extends Component {
   render() {
@@ -20,12 +21,14 @@ class App extends Component {
             <Link to="/stocks" className="nav-logo">StockStuff</Link>
             <Link to="/stocks">Stocks</Link>
             <Link to="/about">About</Link>
+            <Link to="/search">Search</Link>
           </nav>
           <main className="main">
             <Route exact path="/" component={Stocks}/>
             <Route exact path="/stocks" component={Stocks} />
             <Route exact path="/stocks/:symbol" component={Stock}/>
             <Route path="/about" component={About} />
+            <Route path="/search" component={SearchContainer} />
           </main>
         </div>
       </Router>
