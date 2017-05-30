@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import $ from "jquery"
+// import $ from "jquery"
 
 class Stock extends Component {
   constructor(props){
