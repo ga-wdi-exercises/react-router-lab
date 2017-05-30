@@ -28,7 +28,7 @@ class App extends Component {
     }
     this.handleTrackedState = this.handleTrackedState.bind(this)
   }
-  componentStocks(){
+  componentDidMount(){
     axios.get("http://localhost:3000/stocks").then((response) => {
       this.setState({
         stocks: response.data

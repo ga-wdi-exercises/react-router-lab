@@ -5,19 +5,24 @@ class Stock extends Component {
   constructor(props){
     super(props)
     this.state = {
-      selectedStock: this.props.location.state.selectedStock,
+      stock: this.props.location.state.selectedStock,
       apiStock: {}
     }
   }
-  componentStocks() {
-    let url = "http://dev.markitondemand.com/Api/v2/Quote/jsonp?symbol=" + this.state.selectedStock.symbol
+  componentDidMount() {
+    let url = "http://dev.markitondemand.com/Api/v2/Quote/jsonp?symbol=" + this.state.stock.symbol
     $.ajax({
       url,
       method: "GET",
       dataType: "jsonp"
     }).then((response) => {
+      console.log(response)
       this.setState({ apiStock: response })
-    })
+    },
+      (err) => {
+        console.log(err)
+      }
+  )
   }
   render() {
     return (
