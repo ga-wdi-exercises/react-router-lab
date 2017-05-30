@@ -6,6 +6,7 @@ import {
   Redirect
 } from "react-router-dom"
 import './App.css';
+import Stock from './Stock/Stock.js'
 
 class App extends Component {
   render() {
@@ -14,11 +15,13 @@ class App extends Component {
         <div>
           <nav className="nav">
             <h2>Stockzzz</h2>
-            <Link to=""></Link>
-            <Link to=""></Link>
+            <Link to="/Dashboard">Home</Link>
+            <Link to="/About">About</Link>
           </nav>
           <main>
-
+            <Route
+              path="/Dashboard"
+              component={Stock} />
           </main>
         </div>
       </Router>
