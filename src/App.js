@@ -8,6 +8,7 @@ import {
 import './App.css';
 
 import Dashboard from "./dashboard"
+import Stocks from "./stocks"
 
 
 
@@ -31,6 +32,10 @@ class App extends Component {
                   <Dashboard />
                 )
               }}
+            />
+            <Route
+              path="/stocks/:symbol"
+              component={Stocks}
             />
            </main>
         </div>

@@ -9,27 +9,27 @@ import {
 import Stocks from "./stocks"
 
 class Dashboard extends Component{
+	constructor(props){
+		super(props)
+	}
 	render() {
 		let stocks = stockData.map((stock, index) => {
+			let pathname = `/stocks/${stock.symbol}`
 			return (
-				<Router>
+
 					<div>
 						<div key={index}>
-							<p><Link to="/stocks">{stock.name}</Link></p>
-							<p>{stock.symbol}</p>
+							<p>{stock.name}</p>
+							<p><Link to={{
+								pathname, 
+								state : {selectedStock: stock}
+							}}>{stock.symbol}</Link></p>
 
-							<Route
-								path="/stocks"
-								render={() => {
-								return(
-								<Stocks />
-							)
-						}}
-					/>
+
 
 						</div>
 					</div>
-				</Router>
+
 			)
 		})
 		return (
