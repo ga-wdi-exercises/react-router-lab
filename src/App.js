@@ -12,13 +12,13 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <nav>
+          <nav className="nav">
+            <h2>Stockzzz</h2>
             <Link to=""></Link>
             <Link to=""></Link>
           </nav>
           <main>
-            <Route path="" render={}/>
-            <Route path="" render={}/>
+
           </main>
         </div>
       </Router>
