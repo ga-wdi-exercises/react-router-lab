@@ -8,6 +8,7 @@ import {
 import './App.css';
 import Dashboard from './Dashboard.js'
 import Stock from './Stock.js'
+import About from './About.js'
 
 class App extends Component {
   constructor(props){
@@ -38,15 +39,16 @@ class App extends Component {
           <main>
 
             <Route
-            exact path='/'
+              exact path='/'
               render={() => {
                 return (
-                  <Dashboard stocks = {this.state.stocks} />
+                  <Dashboard stocks={this.state.stocks} />
                 )
               }}
             />
-            <Route path='/stocks/:symbol'/>
 
+            <Route path='/stocks/:symbol' component={Stock}/>
+            <Route path="/about" component={About} />
 
 
 
