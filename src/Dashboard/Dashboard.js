@@ -9,7 +9,7 @@ class Dashboard extends Component {
   render(){
     let stocks = this.props.stocks.map((stock, i) => {
       let pathname = `/stocks/${stock.symbol}`
-        return <li className = "stocks_stock" key={i}>
+        return <li key={i}>
           {stock.name} (<Link to={{
             pathname,
             state: {selectedStock: stock}
@@ -22,7 +22,7 @@ class Dashboard extends Component {
     return (
       <div>
         <h1> Stocks </h1>
-        <ul className="stock_list">
+        <ul>
           {stocks}
         </ul>
       </div>
