@@ -1,22 +1,33 @@
 import React, { Component } from 'react'
-// import $ from "jquery"
+import $ from "jquery"
 
 class Stock extends Component {
   constructor(props){
     super(props)
     this.state = {
-      stock: this.props.location.state.selectedStock
+      selectedStock: this.props.location.state.selectedStock,
+      apiStock: {}
     }
+  }
+  componentStocks() {
+    let url = "http://dev.markitondemand.com/Api/v2/Quote/jsonp?symbol=" + this.state.selectedStock.symbol
+    $.ajax({
+      url,
+      method: "GET",
+      dataType: "jsonp"
+    }).then((response) => {
+      this.setState({ apiStock: response })
+    })
   }
   render() {
     return (
       <div>
-        <h1> {this.state.stock.name} ({this.state.stock.symbol}) </h1>
+        <h1> {this.state.apiStock.Name} ({this.state.apiStock.Symbol}) </h1>
         <ul>
-          <li>Last Price: {this.state.stock.lastPrice}</li>
-          <li>Change: {this.state.stock.change}</li>
-          <li>High: {this.state.stock.high}</li>
-          <li>Low: {this.state.stock.low}</li>
+          <li>Last Price: {this.state.apiStock.LastPrice}</li>
+          <li>Change: {this.state.apiStock.Change}</li>
+          <li>High: {this.state.apiStock.High}</li>
+          <li>Low: {this.state.apiStock.Low}</li>
         </ul>
       </div>
     )
