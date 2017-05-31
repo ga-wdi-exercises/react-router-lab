@@ -35,11 +35,10 @@ class App extends Component {
             <div>
               <Link to="/">Home</Link>
               <Link to="/about">About</Link>
+              <Link to="/Search">Search</Link>
             </div>
           </nav>
-
           <main>
-
             <Route
               exact path='/'
               render={() => {
@@ -48,19 +47,18 @@ class App extends Component {
                 )
               }}
             />
-
             <Route path='/stocks/:symbol' component={Stock}/>
             <Route path="/about" component={About} />
-
-
-
-
-
           </main>
         </div>
       </Router>
-    );
-  }
-}
+        );
+        }
+      }
+
+
+
+
+
 
 export default App;
