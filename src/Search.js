@@ -1,24 +1,16 @@
 import React, {Component} from 'react'
 
 class Search extends Component {
-  constructor (props) {
-    super()
-    this.state = {
-      newStock: []
-    }
-  }
-  componentWillMount(){
-    this.setState({
-      newStock: this.state.searchedStock,
-      hasSearched: this.state.hasSearched
-    })
 
-  }
 
   render(){
+    let newStock =[]
     if (this.props.hasSearched){
-    let newStock = this.props.searchedStock
-    console.log(newStock[0])
+    newStock = this.props.searchedStock.find(function(stock){
+      return stock
+    })
+
+    console.log(newStock)
     }
 
     return (
@@ -31,7 +23,9 @@ class Search extends Component {
           </p>
           <input type="submit" value="Search"/>
         </form>
-        {this.state.newStock}
+        <p>{newStock.l_cur}</p>
+        <p>{newStock.c}</p>
+        <p>{newStock.pcls_fix}</p>
       </div>
     )
   }
