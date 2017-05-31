@@ -3,7 +3,11 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="/css/master.css">
     <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
+    <script type="text/javascript">
+
+    </script>
     <!--
       Notice the use of %PUBLIC_URL% in the tag above.
       It will be replaced with the URL of the `public` folder during the build.
@@ -17,6 +21,15 @@
   </head>
   <body>
     <div id="root"></div>
+    <div className="nav">
+        <div className="nav-item"><Link to="/home">Home</Link></div>
+        <div className="nav-item"><Link to="/about">About</Link></div>
+        <div className="nav-item"><Link to="/search">Search</Link></div>
+      </div>
+
+
+
+
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
