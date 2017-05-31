@@ -39,10 +39,26 @@ render() {
         <Route path="/about" component={About}/>
         <Route path="/search" component={Search}/>
         </div>
+
+        <div className="main">
+          <Route exact path="/" render={() => <Dashboard stocks={this.state}
+          <Route path="/about" component={About} />
+          <Route path="/stocks/:symbol" component={stock} />
+        </div>
+      </div>
+    <Router>
+     );
+    }
+  }
+
+
+
+
       </Router>
     )
   }
 }
+
 
 class Home extends Component {
   render() {
@@ -78,6 +94,9 @@ class Search extends Component {
     )
   }
 }
+
+
+
 
 
   export default App;
