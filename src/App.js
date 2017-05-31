@@ -13,7 +13,7 @@ class Home extends Component {
     return(
       <div>
         {stockData.map ((stock, index) => (
-            <h2 key={index}>{stock.name} {stock.symbol}</h2>
+            <h3 key={index}><Link to={`/stocks/${stock.symbol}`}>{stock.name} {stock.symbol}</Link></h3>
         ))}
       </div>
     )
@@ -23,7 +23,13 @@ class Home extends Component {
 class About extends Component {
   render() {
     return(
-      <div>About</div>
+      <div>
+        <h3>Stock Tracking App</h3>
+        <p>Track your favorite stock prices in real time. At Stock Tracking App,
+        we care about your financial security.</p>
+        <p>Sign up today</p>
+
+      </div>
     )
   }
 }
@@ -34,8 +40,8 @@ class App extends Component {
       <Router>
         <div>
           <ul>
-            <li><Link to="/">Home</Link></li>
-            <li><Link to="/about">About</Link></li>
+            <li><Link to="/"><h2>Home</h2></Link></li>
+            <li><Link to="/about"><h2>About</h2></Link></li>
           </ul>
           <Route path="/" exact component={Home} />
           <Route path="/about" component={About} />
