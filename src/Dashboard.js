@@ -9,13 +9,12 @@ class Dashboard extends Component {
     super(props)
     this.state = {
       stocks: [],
-
     }
   }
   componentDidMount(){
     axios.get("http://localhost:3000/stocks").then((response) => {
       this.setState({
-        stocks: response.data
+        stocks: response.data,
       })
     })
   }
@@ -29,7 +28,7 @@ class Dashboard extends Component {
     })
     return (
       <div>
-        <h2>Stocks</h2>
+        <h2>List of Stocks</h2>
         <ul>
           {stocks}
         </ul>
