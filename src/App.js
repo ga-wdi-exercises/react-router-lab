@@ -6,9 +6,10 @@ import {
   Redirect
 } from "react-router-dom"
 import Dashboard from "./Dashboard"
+import About from "./About"
+import stock from "./stock"
 import stockData from '../data/stock-data'
 import './App.css';
-
 
 
 
@@ -41,23 +42,16 @@ render() {
         </div>
 
         <div className="main">
-          <Route exact path="/" render={() => <Dashboard stocks={this.state.stocks} />} }
+          <Route exact path="/" render={() => <Dashboard stocks={this.state.stocks} />} />
           <Route path="/about" component={About} />
           <Route path="/stocks/:symbol" component={stock} />
         </div>
-      </div>
-    <Router>
+    </Router>
      );
     }
   }
 
 
-
-
-      </Router>
-    )
-  }
-}
 
 
 class Home extends Component {
