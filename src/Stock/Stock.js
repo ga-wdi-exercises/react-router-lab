@@ -6,20 +6,38 @@ import {
   Redirect
 } from "react-router-dom"
 
+import stocks from '../../data/stock-data'
+
 class Stock extends Component {
-render() {
-    return (
-      <div>
-        <h1>{this.props.stock.name}</h1>
-        <p>{this.props.stock.symbol}</p>
-        <p>Last Price: {this.props.stock.lastPrice}</p>
-        <p>Change: {this.props.stock.change}</p>
-        <p>High: {this.props.stock.high}</p>
-        <p>Low: {this.props.stock.low}</p>
-        <p>Open: {this.props.stock.open}</p>
-      </div>
-    )
+  constructor(props){
+    super(props)
+    this.state = {
+      stockSymbol: this.props.match.params.symbol
+    }
   }
-}
+
+  render() {
+    let stockResults = stocks.map((stock, i) => {
+      if(stock.symbol === this.state.stockSymbol){
+        return (
+          <div key={i}>
+            <h1>{stock.name}</h1>
+            <p>{stock.symbol}</p>
+            <p>Last Price: {stock.lastPrice}</p>
+            <p>Change: {stock.change}</p>
+            <p>High: {stock.high}</p>
+            <p>Low: {stock.low}</p>
+            <p>Open: {stock.open}</p>
+          </div>
+        )
+      }
+    })
+      return (
+        <div>
+          {stockResults}
+        </div>
+      )
+    }
+  }
 
 export default Stock;

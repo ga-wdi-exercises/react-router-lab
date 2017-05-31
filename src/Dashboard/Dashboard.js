@@ -12,7 +12,7 @@ import Stock from '../Stock/Stock.js'
 
 class Dashboard extends Component {
   constructor(props) {
-    super(props)
+    super()
     this.state= {
       stocks: stocks
     }
