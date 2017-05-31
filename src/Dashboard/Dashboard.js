@@ -5,13 +5,7 @@ import "./Dashboard.css"
 class Dashboard extends Component {
   render () {
     return (
-      <div>
-      <h3>Stocks</h3>
-      <ul>
-        <li>Stock</li>
-        <li>Stock</li>
-      </ul>
-      </div>
+  
     )
 
   }

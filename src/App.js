@@ -6,7 +6,8 @@ import {
   Redirect
 } from "react-router-dom"
 import './App.css';
-import Stock from './Stock/Stock.js'
+import Stocks from './Stocks/Stocks.js'
+import $ from 'jquery'
 
 class App extends Component {
   render() {
@@ -15,13 +16,14 @@ class App extends Component {
         <div>
           <nav className="nav">
             <h2>Stockzzz</h2>
-            <Link to="/Dashboard">Home</Link>
+            <Link to="/Stocks">Home</Link>
             <Link to="/About">About</Link>
           </nav>
           <main>
             <Route
-              path="/Dashboard"
-              component={Stock} />
+              path="/Stocks"
+              component={Stocks} />
+
           </main>
         </div>
       </Router>
