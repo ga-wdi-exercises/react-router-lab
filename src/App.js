@@ -28,7 +28,6 @@ class About extends Component {
         <p>Track your favorite stock prices in real time. At Stock Tracking App,
         we care about your financial security.</p>
         <p>Sign up today</p>
-
       </div>
     )
   }
