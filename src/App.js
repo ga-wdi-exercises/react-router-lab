@@ -8,6 +8,10 @@ import {
 import stockData from '../data/stock-data'
 import './App.css';
 
+
+
+
+
 class App extends Component {
   render() {
     return (
