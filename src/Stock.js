@@ -11,25 +11,43 @@ class Stock extends Component {
   }
 
   componentDidMount(){
-    let url = "http://dev.markitondemand.com/Api/v2/Quote/jsonp?symbol=" + this.state.selectedStock.symbol
+    const domain = "https://www.alphavantage.co/"
+    let current = this.state.selectedStock.symbol
+    const endpoint = `query?function=TIME_SERIES_INTRADAY&symbol=${current}&interval=1min&apikey=`
+    // You must replace this with a valid key of your own. Sign up for one at:
+    // https://www.alphavantage.co/support/#api-key
+    const apiKey = "demo"
+
+    let url = `${domain}${endpoint}${apiKey}`
     $.ajax({
       url,
       method: "GET",
-      dataType: "jsonp"
+      dataType: "json"
     }).then((response) => {
-      this.setState({ apiStock: response })
+      console.log(Object.values(response)[0]);
+      let stockSymbol = Object.values(response)[0]["2. Symbol"]
+      let stocks = Object.values(response)[1]
+      let mostRecent = Object.values(stocks)[0]
+      let cleansedStockObject = {
+        symbol: stockSymbol,
+        high: mostRecent["2. high"],
+        low: mostRecent["3. low"],
+        change: mostRecent["4. close"] - mostRecent["1. open"]
+      }
+      console.log(cleansedStockObject);
+      this.setState({ apiStock: cleansedStockObject })
     })
   }
 
   render() {
     return (
       <div>
-        <h2>{this.state.apiStock.Name} ({this.state.apiStock.Symbol})</h2>
+        <h2> {this.state.apiStock.symbol} </h2>
+        <p>In the last minute: </p>
         <ul>
-          <li>Current Price: {this.state.apiStock.LastPrice}</li>
-          <li>Change: {this.state.apiStock.Change}</li>
-          <li>High: {this.state.apiStock.High}</li>
-          <li>Low: {this.state.apiStock.Low}</li>
+          <li>Change: {this.state.apiStock.change}</li>
+          <li>High: {this.state.apiStock.high}</li>
+          <li>Low: {this.state.apiStock.low}</li>
         </ul>
       </div>
     );
