@@ -55,8 +55,8 @@ class App extends Component {
               }
               return <Search handleTrackedState={this.handleTrackedState} />
             }} />
-          <Route path="/about" component={About} />
-          <Route path="/stocks/:symbol" component={Stock} />
+            <Route path="/about" component={About} />
+            <Route path="/stocks/:symbol" component={Stock} />
           </div>
         </div>
       </Router>
