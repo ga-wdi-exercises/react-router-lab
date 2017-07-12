@@ -10,12 +10,19 @@ import About from './About'
 import StockList from './StockList'
 import axios from 'axios'
 import stocks from '../data/stock-data'
+import Stock from './Stock'
 
 class App extends Component {
   constructor(){
     super()
     this.state = {
-      stocks: stocks
+      stocks: stocks,
+      showStock: null
+    }
+  }
+  showStock(e, stock){
+    this.setState = {
+      showStock: stock
     }
   }
   render() {
@@ -31,12 +38,14 @@ class App extends Component {
           <main>
             <Route path="/home" render={ ()=>{
               return(
-                <StockList stocks={this.state.stocks}/>
+                <StockList stocks={this.state.stocks} showStock={this.ShowStock}/>
               )
             }}/>
-            {/*<Route path="/stocks/:symbol" render={ ()=>{
-              return()
-            }}/>*/}
+            <Route path="/stocks/*" render={ ()=>{
+              return(
+                <Stock showStock={this.state.showStock}/>
+              )
+            }}/>
             <Route path="/about" render={ ()=>{
               return(
                 <About />

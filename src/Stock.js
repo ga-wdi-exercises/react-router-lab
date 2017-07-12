@@ -6,9 +6,9 @@ export default class Stock extends Component {
     render() {
         return (
             <li className="Stock">
-                <a href="" className="symbol">{this.props.symbol}</a>
+                <a className="symbol">{this.props.showStock.symbol}</a>
                 <span> - </span>
-                <span>{this.props.name}</span>
+                <span>{this.props.showStock.name}</span>
             </li>
         );
     }
