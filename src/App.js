@@ -12,6 +12,9 @@ import StockList from './StockList'
 class App extends Component {
   constructor(){
     super()
+    this.state = {
+      stocks: []
+    }
   }
   render() {
     return (
@@ -26,12 +29,12 @@ class App extends Component {
           <main>
             <Route path="/home" render={ ()=>{
               return(
-                <StockList />
+                <StockList stocks={this.state.stocks}/>
               )
             }}/>
-            <Route path="/stocks/:symbol" render={ ()=>{
+            {/*<Route path="/stocks/:symbol" render={ ()=>{
               return()
-            }}/>
+            }}/>*/}
             <Route path="/about" render={ ()=>{
               return(
                 <About />
