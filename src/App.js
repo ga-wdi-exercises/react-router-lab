@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import About from './About.js'
 import StockList from './StockList.js'
+import Stock from './Stock.js'
 import {
   BrowserRouter as Router,
   Route,
@@ -8,6 +9,7 @@ import {
   Redirect
 } from "react-router-dom"
 import './App.css';
+// import axios from 'axios'
 
 class App extends Component {
   constructor (){
@@ -20,10 +22,19 @@ class App extends Component {
   {"name": "Facebook, Inc.", "symbol": "FB", "lastPrice": 140.34, "change": 0.810000000000002, "high": 141.0244, "low": 139.76, "open": 140.08},
   {"name": "Oracle Corporation", "symbol": "ORCL", "lastPrice": 44.65, "change": -0.300000000000004, "high": 45.09, "low": 44.575, "open": 44.91},
   {"name": "Intel Corporation", "symbol": "INTL", "lastPrice": 36.16, "change": -0.370000000000005, "high": 36.78, "low": 36.125, "open": 36.58}
-]
+],
+hasClicked: false,
+index:1
     }
   }
+  showpage(e){
+    console.log("clicked");
+    this.setState({
+          hasClicked: true
+    })
+  }
   render() {
+
     return (
       <Router>
         <div>
@@ -33,13 +44,14 @@ class App extends Component {
           </nav>
           <main>
             <Route
-              path="/"
+              exact path="/"
               render={()=>{
                 return(
-                  <StockList />
+                   this.state.hasClicked
+                ?  <Stock  stocks={this.state.stockData} stockIndex={this.state.index}/>
+                : <StockList stocks={this.state.stockData} stockIndex={this.state.index} showpage={()=>{this.showpage()}}/>
                 )
-              }
-              }
+              }}
             />
             <Route
               path="/about"
@@ -47,16 +59,22 @@ class App extends Component {
                 return(
                   <About />
                 )
-
-              }
-              }
+              }}
             />
+            {/* <Route path="/about" component={About} /> */}
             <Route
-                  path="/*"//i wonder
-                  render={()=> <Redirect to="/"/> }
-                />
+              path="/stocks/:name"
+              render={()=>{
+                return(
+               <Stock  stocks={this.state.stockData} stockIndex={this.state.index}/>
+                )
+              }}
+            />
           </main>
-
+          <Route
+                path="/*"//i wonder
+                render={()=> <Redirect to="/"/> }
+              />
         </div>
 
       </Router>
