@@ -8,12 +8,14 @@ import {
 import './App.css';
 import About from './About'
 import StockList from './StockList'
+import axios from 'axios'
+import stocks from '../data/stock-data'
 
 class App extends Component {
   constructor(){
     super()
     this.state = {
-      stocks: []
+      stocks: stocks
     }
   }
   render() {
