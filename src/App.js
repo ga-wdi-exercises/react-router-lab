@@ -9,6 +9,7 @@ import './App.css';
 import stockData from '../data/stock-data.json';
 import Dashboard from './components/Dashboard/Dashboard'
 import About from './components/About/About'
+import Stock from './components/Stock/Stock'
 
 class App extends Component {
   constructor(){
@@ -47,6 +48,10 @@ class App extends Component {
                   <About />
                 )
               }}
+            />
+            <Route
+              path="/stocks/:symbol"
+              component={Stock}
             />
             <Route
               path="/*"
