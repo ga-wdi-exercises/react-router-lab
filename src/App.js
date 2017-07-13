@@ -5,6 +5,7 @@ import {
   Link,
   Redirect
 } from "react-router-dom"
+import axios from 'axios'
 import './App.css';
 import Dashboard from './Dashboard.js'
 import data from '../data/stock-data'
@@ -14,12 +15,24 @@ class App extends Component {
   constructor() {
     super();
       this.state = {
-        stocks: data,
+        stocks: get,
+        stockData: null,
         currentStock: null
       }
   this.clickStock = this.clickStock.bind(this)
   }
   clickStock(e,input){
+    axios.get("https://www.alphavantage.com/query?",{params:{
+          function: 'TIME_SERIES_DAILY',
+          symbol: '',
+          outputsize: 'compact',
+          datatype: 'json',
+          apikey: 'OOB8GT5EZHINRI7K'
+        }}).then((data)=>{
+          this.setState({
+            stockData: data
+          })
+        })
     this.setState({
       currentStock: input
     })
@@ -48,7 +61,6 @@ class App extends Component {
             <Route
               path="/stocks/*"
               render={()=>{
-                if(false){<Redirect />}
                 return(
                     <Stock currentStock={this.state.currentStock} />
                   )
@@ -57,6 +69,7 @@ class App extends Component {
             <Route
               path="/about"
               render={()=>{
+                if(false){<Redirect />}
                 return(
                     <div>
                       <h2>About</h2>
