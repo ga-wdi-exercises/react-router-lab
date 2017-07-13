@@ -10,7 +10,7 @@ export default class StockList extends Component {
                 <div className="Stock">
                     <Link className='Link' to={{
                         pathname: '/stocks/' + stock.symbol,
-                        selection: stock
+                        state: {selection: stock}
                     }}
                     key={index}
                     onClick={(e) => {this.props.showStock(stock)}}>{stock.symbol}</Link>
