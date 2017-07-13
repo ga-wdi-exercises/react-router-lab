@@ -17,13 +17,13 @@ class App extends Component {
     super()
     this.state = {
       stocks: stocks,
-      showStock: null
+      currentStock: null
     }
-
+    this.showStockFunction = this.showStockFunction.bind(this)
   }
   showStockFunction(e, stock){
     this.setState = {
-      showStock: stock
+      currentStock: stock
     }
   }
   render() {
@@ -44,7 +44,7 @@ class App extends Component {
             }}/>
             <Route path="/stocks/*" render={ ()=>{
               return(
-                <Stock showStock={this.state.showStock}/>
+                <Stock showStock={this.state.currentStock}/>
               )
             }}/>
             <Route path="/about" render={ ()=>{
