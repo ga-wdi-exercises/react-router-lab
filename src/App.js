@@ -19,8 +19,9 @@ class App extends Component {
       stocks: stocks,
       showStock: null
     }
+
   }
-  showStock(e, stock){
+  showStockFunction(e, stock){
     this.setState = {
       showStock: stock
     }
