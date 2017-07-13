@@ -9,8 +9,11 @@ export default class StockList extends Component {
             return (
                 <div className="Stock">
                     <Link className='Link' to={{
-                        pathname: '/stocks/' + stock.symbol
-                    }} key={index} onClick={(e) => {this.props.showStock(stock)}}>{stock.symbol}</Link>
+                        pathname: '/stocks/' + stock.symbol,
+                        selection: stock
+                    }}
+                    key={index}
+                    onClick={(e) => {this.props.showStock(stock)}}>{stock.symbol}</Link>
                     <span> - </span>
                     <span>{stock.name}</span>
                 </div>
