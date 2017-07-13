@@ -4,17 +4,20 @@ import "./Home.css"
 // import Stocks from '../data/stock-data.json';
 
 
-class Dashboard extends Component {
+class Home extends Component {
   constructor(props){
     super(props)
   }
   render(){
     const stocks = this.props.stocks.map((stock, i) => {
+      const stockpath = `/stocks/${stock.symbol}`
       return (
-      <div key={i}>
-        <p>{stock.name}</p>
-        <p>{stock.symbol}</p>
-      </div>
+      <li key={i}>
+        {stock.name}
+      (<Link to={{stockpath, state: {selectedStock: stock}}})
+        {stock.symbol}
+      </Link>
+      </li>
       )
     })
     return(
