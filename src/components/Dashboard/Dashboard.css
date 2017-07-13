@@ -1,0 +1,12 @@
+.stocks a {
+  color: #99CC00;
+  font-weight: bold;
+}
+
+.dashboard {
+  border: 1px solid grey;
+}
+
+.stocks h2{
+  text-align: center;
+}
