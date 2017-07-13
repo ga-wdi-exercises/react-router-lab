@@ -15,8 +15,8 @@ class App extends Component {
   constructor() {
     super();
       this.state = {
-        stocks: get,
-        stockData: null,
+        stocks: data,
+        // stockData: null,
         currentStock: null
       }
   this.clickStock = this.clickStock.bind(this)
