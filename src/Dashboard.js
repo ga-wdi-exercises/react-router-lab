@@ -7,13 +7,12 @@ class Dashboard extends Component {
   }
   render () {
     let stocks = this.props.stocks.map((stock, index) => {
-      let path = `/stocks/${stock.symbol}`
+      let pathname = `/stocks/${stock.symbol}`
       // console.log(stock.name)
       return <li key={index}>
-        {stock.name}
-        (<Link to={{
-          path,
-          state: {selectStock: stock}
+        {stock.name} (<Link to={{
+          pathname,
+          state: {selectedStock: stock}
         }}>
           {stock.symbol}
         </Link>)
