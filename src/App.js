@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Dashboard from './Dashboard.js'
 import About from './About.js'
-import Data from '../data/stock-data.json'
+import data from '../data/stock-data.json'
 import {
   BrowserRouter as Router,
   Route,
@@ -14,7 +14,7 @@ class App extends Component {
   constructor () {
     super()
     this.state = {
-      data : Data
+      data
     }
   }
   render() {

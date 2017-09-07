@@ -10,7 +10,9 @@ class Stock extends Component {
 
   render () {
     return (
+      <div>
       <h2>stock detail</h2>
+      </div>
     )
   }
 }
