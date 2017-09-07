@@ -1,16 +1,23 @@
 import React, { Component } from 'react';
 import Dashboard from './Dashboard.js'
 import About from './About.js'
+import Data from '../data/stock-data.json'
 import {
   BrowserRouter as Router,
   Route,
   Link,
-  Redirect,
-  Switch
+  Redirect
 } from "react-router-dom"
 import './App.css';
 
 class App extends Component {
+  constructor () {
+    super()
+    this.state = {
+      data : Data
+    }
+    console.log(this.state.data)
+  }
   render() {
     return (
       <Router>
@@ -20,9 +27,12 @@ class App extends Component {
             <Link to="/about">About</Link>
             </nav>
             <main>
-              <Route path ="/"
+              <Route exact path ="/"
                 render={(props) => {
-                  return (< Dashboard  {...props}/>)
+                  return (< Dashboard
+                    {...props}
+                    stocks={ this.state.data }
+                    />)
                 }}
               />
               <Route path ="/about"
