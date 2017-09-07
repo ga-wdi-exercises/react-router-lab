@@ -1,15 +1,21 @@
 import React, { Component } from 'react'
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  Redirect
+} from "react-router-dom"
 
 class Dashboard extends Component {
   constructor(props) {
     super(props)
   }
-  
+
   render() {
     var stocks = this.props.stocks.map((stock, i) => {
       return (
         <li key ={i}>
-          {stock.name}
+          {stock.name} <Link to={`/stocks/${stock.symbol}`}> {stock.symbol} </Link>
         </li>)
     })
 
@@ -24,29 +30,4 @@ class Dashboard extends Component {
   }
 }
 
-// class Dashboard extends Component {
-//   constructor(props){
-//     super(props)
-//   }
-//   render() {
-//     let stocks = this.props.stocks.map((stock, i) => {
-//       let pathname = `/stocks/${stock.symbol}`
-//       return <li className="stocks-stock" key={i}>
-//          {stock.name} (<Link to={{
-//               pathname,
-//               state: {selectedStock: stock}
-//             }}>
-//             {stock.symbol}
-//           </Link>)
-//        </li>
-//     })
-//     return (
-//       <div className="stocks">
-//         <h2>Stocks</h2>
-//         <ul className="stocks-list">
-//           {stocks}
-//         </ul>
-//       </div>
-//     );
-//   }
-// }
+export default Dashboard

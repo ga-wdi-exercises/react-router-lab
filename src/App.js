@@ -8,21 +8,14 @@ import {
 import './App.css';
 import About from './About'
 import Dashboard from './Dashboard'
+import Stock from './Stock'
 import data from '../data/stock-data.json'
 
 class App extends Component {
   constructor(props) {
     super()
     this.state = {data}
-    // console.log('data: ' + data)
-    // console.log('state: ' + this.state.data)
   }
-
-  // setData (data) {
-  //   this.setState({
-  //     data: data
-  //   })
-  // }
 
   render() {
     return (
@@ -39,7 +32,7 @@ class App extends Component {
                 return (
                   <Dashboard
                     {...props}
-                    stocks = { this.state.data }
+                    stocks={ this.state.data }
                   />
                 )
               }}
@@ -49,6 +42,17 @@ class App extends Component {
               render={() => {
                 return (
                 <About />
+                )
+              }}
+            />
+            <Route
+              path="/stocks/:symbol"
+              render={(props) => {
+                return (
+                  <Stock
+                    {...props}
+                    stocks={ this.state.data }
+                  />
                 )
               }}
             />
