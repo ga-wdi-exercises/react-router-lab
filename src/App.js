@@ -9,8 +9,8 @@ import {
 import './App.css'
 
 class App extends Component {
-  constructor () {
-    super()
+  constructor (props) {
+    super(props)
     this.state = {
       stocks: [
         {name: 'Apple Inc.', symbol: 'AAPL', lastPrice: 140.64, change: -0.280000000000001, high: 141.74, low: 140.35, open: 141.5},
