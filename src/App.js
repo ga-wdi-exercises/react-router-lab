@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import About from './About'
 import Dashboard from './Dashboard'
+import Stock from './Stock'
 import data from '../data/stock-data.json'
 import {
   BrowserRouter as Router,
@@ -29,11 +30,11 @@ class App extends Component {
             <Switch>
               <Route
                 path='/about'
-                render={(props) => {
-                  return (
-                    <About />
-                  )
-                }}
+                component={About}
+              />
+              <Route
+                path='/stocks/:symbol'
+                component={Stock}
               />
               <Route
                 path='/'

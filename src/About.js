@@ -8,6 +8,7 @@ class About extends Component {
     return (
       <div>
         <h2>About page</h2>
+        <p>This app allows you to track stocks</p>
       </div>
     )
   }
