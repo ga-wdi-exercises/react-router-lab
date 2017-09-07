@@ -5,7 +5,8 @@ import {
   BrowserRouter as Router,
   Route,
   Link,
-  Redirect
+  Redirect,
+  Switch
 } from "react-router-dom"
 import './App.css';
 
@@ -20,8 +21,13 @@ class App extends Component {
             </nav>
             <main>
               <Route path ="/"
+                render={(props) => {
+                  return (< Dashboard  {...props}/>)
+                }}
+              />
+              <Route path ="/about"
                 render={() => {
-                  return (< Dashboard  />)
+                  return (< About  />)
                 }}
               />
             </main>
