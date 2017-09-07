@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom'
 class Tracker extends Component {
   constructor (props) {
     super(props)
-    console.log(props)
   }
 
   render () {
@@ -13,7 +12,7 @@ class Tracker extends Component {
       return <li key={i}>
         <Link to={{
           pathname: `/stocks/${item.symbol}`,
-          state: { stocks: stocks }
+          state: { selectedStock: item }
         }}> {item.symbol} </Link>
         - {item.name} </li>
     })

@@ -36,12 +36,8 @@ class App extends Component {
               }}
             />
             <Route
-              path='/stocks'
-              render={(props) => {
-                return (
-                  <Info stocks={this.state.data} />
-                )
-              }}
+              path='/stocks/:symbol'
+              component={Info}
             />
             <Route
               path='/about'
