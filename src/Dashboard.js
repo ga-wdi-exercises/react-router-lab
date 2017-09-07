@@ -1,21 +1,28 @@
 import React, { Component } from 'react'
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  Redirect
+} from "react-router-dom"
+
 
 class Dashboard extends Component {
-
   render () {
-    // let stock = this.props.stocks.map( (name, index) =>{
-    //   return (
-    //     <div key={index}>
-    //       <p>{stocks.name}</p>
-    //     </div>
-    //   )
-    // })
+    console.log(this.props.stocks)
+    let stock = this.props.stocks.map( (stock, index) =>{
+
+      return (
+        <div key={index}>
+          <p>{stock.name}: <Link to={stock.symbol}>{stock.symbol}</Link>
+          </p>
+        </div>
+      )
+    })
     return (
       <div>
       <h2>Dashboard</h2>
-      <p>{this.props.stocks[0].name}</p>
-      <p>{this.props.stocks[1].name}</p>
-      
+      <div>{stock}</div>
       </div>
     )
   }
