@@ -9,6 +9,9 @@ import './App.css';
 import Dashboard from './Dashboard'
 import stocks from '../data/stock-data'
 import Stock from './Stock'
+import About from './About'
+
+
 
 class App extends Component {
   constructor(props){
@@ -36,7 +39,7 @@ class App extends Component {
           <br />
 
           <div>
-            <Route path="/" render={() => {
+            <Route exact path="/" render={() => {
               return (
               <Dashboard stocks={this.state.stocks} stockLink = {this.stockLink}/>
             )
@@ -46,6 +49,8 @@ class App extends Component {
                 <Stock clickStock={this.state.clickStock}/>
               )
             }}/>
+
+          <Route path='/about' render={() => {return(<About /> )}} />
 
           </div>
 
