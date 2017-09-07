@@ -5,7 +5,7 @@ class Stock extends Component {
     super(props)
     console.log(props);
     this.state = {
-      stock: this.props.location.state.stock
+      stock: this.props.match.params.symbol
     }
   }
   render() {
@@ -13,8 +13,7 @@ class Stock extends Component {
       <div>
         <h2>{this.state.stock.name} {this.state.stock.symbol}</h2>
         <ul>
-          <li>Last Price: {this.state.stock.lastPrice}</li>
-          <li>Change: {this.state.stock.change}</li>
+          <li>Close Price: {this.state.stock.lastPrice}</li>
           <li>High: {this.state.stock.high}</li>
           <li>Low: {this.state.stock.low}</li>
           <li>Open: {this.state.stock.open}</li>

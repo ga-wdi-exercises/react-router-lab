@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
+import axios from 'axios'
 import About from './About'
 import Dashboard from './Dashboard'
+import Search from './Search'
 import Stock from './Stock'
-import data from '../data/stock-data.json'
+// import data from '../data/stock-data.json'
 import {
   BrowserRouter as Router,
   Route,
@@ -13,10 +15,11 @@ import {
 import './App.css'
 
 class App extends Component {
+
   constructor (props) {
     super(props)
-    this.state = {data}
   }
+
   render () {
     return (
       <Router>
@@ -25,6 +28,7 @@ class App extends Component {
             <div className='nav-item'><span className='nav-logo'>iStocks</span></div>
             <div className='nav-item'><Link to='/'>Home</Link></div>
             <div className='nav-item'><Link to='/about'>About</Link></div>
+            <div className='nav-item'><Link to='/search'>Search</Link></div>
           </div>
           <main>
             <Switch>
@@ -37,12 +41,12 @@ class App extends Component {
                 component={Stock}
               />
               <Route
+                path='/search'
+                component={Search}
+              />
+              <Route
                 path='/'
-                render={(props) => {
-                  return (
-                    <Dashboard stocks={this.state.data}/>
-                  )
-                }}
+                component={Dashboard}
               />
             </Switch>
           </main>

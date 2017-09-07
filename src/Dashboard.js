@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import axios from 'axios'
 import Stock from './Stock'
 import {
   BrowserRouter as Router,
@@ -11,14 +12,29 @@ import {
 class Dashboard extends Component {
   constructor(props) {
     super(props)
+    this.state = {
+      data: []
+    }
   }
+  componentDidMount() {
+      axios.get('http://localhost:3000/stocks')
+      .then((res) => {
+        this.setState({
+          data: res.data
+        })
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+    }
   render() {
-    let stocks = this.props.stocks.map((stock, i) => {
-      return <li key={i}>{stock.name} <Link to={{
-          pathname: `/stocks/${stock.symbol}`,
-          state: {stock: stock}}}>
+    console.log(this.state)
+    let stocks = this.state.data.map((stock, i) => {
+      return (
+        <li key={i}>{stock.name} <Link to={`/stocks/${stock.symbol}`}>
           {stock.symbol}
         </Link></li>
+      )
     })
     return (
       <div>
