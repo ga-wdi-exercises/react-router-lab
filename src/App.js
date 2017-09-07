@@ -6,6 +6,8 @@ import {
   Redirect
 } from "react-router-dom"
 import './App.css';
+import About from './About'
+import Home from './Home'
 
 class App extends Component {
   render() {
@@ -19,9 +21,17 @@ class App extends Component {
           <main>
             <Route
               path="/home"
-              render={<Home />}
+              render={() => {
+                return (
+                  <Home />
+                )
+              }}
             />
-            <Route path="/about" render={<About />} />
+            <Route path="/about" render={() => {
+              return (
+              <About />
+              )
+            }} />
           </main>
         </div>
       </Router>
