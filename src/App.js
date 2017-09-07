@@ -6,18 +6,20 @@ import {
   Redirect
 } from "react-router-dom"
 import './App.css';
+import axios from 'axios'
+
 import Dashboard from './Dashboard'
 import stocks from '../data/stock-data'
 import Stock from './Stock'
 import About from './About'
-
+import Search from './Search'
 
 
 class App extends Component {
   constructor(props){
     super(props)
     this.state = {
-      stocks: stocks,
+      stocks: [],
       clickStock: null
     }
     this.stockLink = this.stockLink.bind(this)
@@ -27,6 +29,13 @@ class App extends Component {
     this.setState({clickStock: stock})
   }
 
+  getStocks() {
+    axios.get('http://localhost:3000/stocks').then((response) => {
+      this.setState({
+        stocks: response.data
+      })
+    })
+  }
   render() {
     return (
       <Router>
@@ -34,6 +43,7 @@ class App extends Component {
           <div>
             <Link to ='/'>Home </Link>
             <Link to ='/about'>About</Link>
+            <Link to ='/search'>Search</Link>
           </div>
 
           <br />
@@ -51,7 +61,7 @@ class App extends Component {
             }}/>
 
           <Route path='/about' render={() => {return(<About /> )}} />
-
+          <Route path='/search' render={() => {return(<Search />)}} />
           </div>
 
         </div>
