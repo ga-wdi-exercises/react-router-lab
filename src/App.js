@@ -11,7 +11,12 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div></div>
+      <div>
+      <nav>
+        <h1>dem stocks</h1>
+      </nav>
+        <div><p>ssd</p></div>
+        </div>
       </Router>
     );
   }
