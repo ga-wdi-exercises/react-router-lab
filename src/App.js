@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import About from './About'
 import {
   BrowserRouter as Router,
   Route,
@@ -28,7 +29,8 @@ class App extends Component {
         <div>
           <nav className='nav'>
             <h1>dem stocks</h1>
-            <Link to="/">Home</Link>
+            <Link to='/'>Home</Link>
+            <Link to='/about'>About</Link>
           </nav>
           <div><p>ssd</p></div>
         </div>
