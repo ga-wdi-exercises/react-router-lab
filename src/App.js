@@ -27,6 +27,7 @@ class App extends Component {
           <nav className="nav">
             <h1>WDI Stock Tracker</h1>
             <Link to="/tracker" className="navLink">Home</Link>
+            <Link to="/search" className="navLink">Searc</Link>
             <Link to="/about" className="navLink">About</Link>
           </nav>
           <main>
