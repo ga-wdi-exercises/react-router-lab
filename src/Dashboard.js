@@ -9,8 +9,9 @@ class Dashboard extends Component {
       return (
         <div key= {index}>
           <Link to =
-          {{pathname: '/stocks' + stock.symbol }}
-          key = {index}>
+          {{pathname: '/stocks/' + stock.symbol }}
+          onClick={(e) => {this.props.stockLink(e, this.props.stocks[index])}}
+          >
           {stock.symbol}, {stock.name}
           </Link>
         </div>
