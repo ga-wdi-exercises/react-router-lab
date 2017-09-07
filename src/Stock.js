@@ -11,7 +11,13 @@ class Stock extends Component {
   render () {
     return (
       <div>
-      <h2>stock detail</h2>
+      <h2>{this.state.stock.name}</h2>
+      <p>Symbol: {this.state.stock.symbol}</p>
+      <p>Opening Price: ${this.state.stock.open}</p>
+      <p>Last Price: ${this.state.stock.lastPrice}</p>
+      <p>High: ${this.state.stock.high}</p>
+      <p>Low: ${this.state.stock.low}</p>
+      <p>Change: {this.state.stock.change}</p>
       </div>
     )
   }
