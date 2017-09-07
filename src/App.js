@@ -11,6 +11,7 @@ import Tracker from './Tracker.js'
 import About from './About.js'
 import data from '../data/stock-data.json'
 import Stock from './Stock.js'
+import Search from './Search.js'
 
 class App extends Component {
   constructor() {
@@ -27,7 +28,7 @@ class App extends Component {
           <nav className="nav">
             <h1>WDI Stock Tracker</h1>
             <Link to="/tracker" className="navLink">Home</Link>
-            <Link to="/search" className="navLink">Searc</Link>
+            <Link to="/search" className="navLink">Search</Link>
             <Link to="/about" className="navLink">About</Link>
           </nav>
           <main>
@@ -59,6 +60,10 @@ class App extends Component {
             <Route
               path="/stock/:symbol"
               component={Stock}
+            />
+            <Route
+              path="/Search"
+              component={Search}
             />
             <Route
               path="/*"
