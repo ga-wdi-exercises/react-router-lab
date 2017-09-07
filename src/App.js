@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import About from './About'
 import Dashboard from './Dashboard'
-import Stocks from './Stocks'
+import Stock from './Stock'
 import {
   BrowserRouter as Router,
   Route,
@@ -37,7 +37,7 @@ class App extends Component {
           <div className='main-page'>
             <Route exact path='/' component={Dashboard} />
             <Route path='/about' component={About} />
-            <Route path='/stocks/:symbols' component={Stocks} />
+            <Route path='/stocks/:symbols' component={Stock} />
           </div>
         </div>
       </Router>
