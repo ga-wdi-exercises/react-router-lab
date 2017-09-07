@@ -12,13 +12,31 @@ import About from './About.js'
 import data from '../data/stock-data.json'
 import Stock from './Stock.js'
 import Search from './Search.js'
+import axios from 'axios'
 
 class App extends Component {
-  constructor() {
-    super()
+  constructor(props){
+    super(props)
     this.state = {
-      data
+      stocks: [],
+      hasTracked: false
     }
+    this.handleTrackedState = this.handleTrackedState.bind(this)
+  }
+  componentDidMount(){
+    axios.get("http://localhost:3000/stocks").then((response) => {
+      this.setState({
+        stocks: response.data
+      })
+    })
+  }
+  handleTrackedState(newStock){
+    let tempArray = this.state.stocks
+    tempArray.push(newStock)
+    this.setState({
+      stocks: tempArray,
+      hasTracked: true
+    })
   }
 
   render() {
@@ -33,46 +51,15 @@ class App extends Component {
           </nav>
           <main>
             <Switch>
-            <Route
-              path="/tracker"
-              render={(props) => {
-                return (
-                  <Tracker
-                  // {...props}
-                  stocks={ this.state.data }
-                  // setTranslation={ (data, language) => this.setTranslation(data, language) }
-                  />
-                )
-              }}
-            />
-            <Route
-              path="/about"
-              render={() => {
-                return (
-                  <About
-                    // {...props}
-                    // translation={ this.state.translation }
-                    // language={this.state.langauge}
-                  />
-                )
-              }}
-            />
-            <Route
-              path="/stock/:symbol"
-              component={Stock}
-            />
-            <Route
-              path="/Search"
-              component={Search}
-            />
-            <Route
-              path="/*"
-              render={() => {
-                return (
-                  <Redirect to="/tracker" />
-                )
-              }}
-            />
+              <Route exact path="/" render={() => <Tracker stocks={this.state.stocks} />} />
+              <Route path="/search" render={() => {
+                if(this.state.hasTracked){
+                  return <Redirect to="/" />
+                }
+                return <Search handleTrackedState={this.handleTrackedState} />
+              }} />
+            <Route path="/about" component={About} />
+            <Route path="/stocks/:symbol" component={Stock} />
             </Switch>
           </main>
         </div>
