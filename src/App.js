@@ -5,7 +5,7 @@ import {
   Link,
   Redirect
 } from "react-router-dom"
-import './App.css';
+import './App.css'
 import About from './About'
 import Dashboard from './Dashboard'
 import Stock from './Stock'
