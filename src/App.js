@@ -35,9 +35,9 @@ class App extends Component {
             <Link to='/about'>About</Link>
           </nav>
           <div className='main-page'>
-            <Route exact path='/' component={Dashboard} />
+            <Route exact path='/' render={() => <Dashboard stocks={this.state.stocks} />} />
             <Route path='/about' component={About} />
-            <Route path='/stocks/:symbols' component={Stock} />
+            <Route path='/stocks/:symbol' component={Stock} />
           </div>
         </div>
       </Router>
