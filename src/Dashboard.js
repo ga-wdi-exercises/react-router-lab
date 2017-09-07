@@ -14,7 +14,10 @@ class Dashboard extends Component {
 
       return (
         <div key={index}>
-          <p>{stock.name}: <Link to={stock.symbol}>{stock.symbol}</Link>
+          <p>{stock.name}&nbsp;|&nbsp;
+          <Link to={{pathname: `stocks/${stock.symbol}`, state: {selectedStock: stock} }}>
+            {stock.symbol}
+          </Link>
           </p>
         </div>
       )
