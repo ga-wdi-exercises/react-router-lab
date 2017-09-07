@@ -21,20 +21,24 @@ class Stock extends Component {
       method: 'GET',
       dataType: 'json'
     }).then((response) => {
+      console.log(response);
       let stockSymbol = Object.values(response)[0]["2. Symbol"]
       let prices = Object.values(response)[1]
       let latest = Object.values(prices)[0]
-      console.log(stockSymbol)
-      console.log(prices[1])
-      console.log(latest)
+      // console.log(response)
+      // console.log(prices)
+      // console.log(latest)
       let newStockObject = {
         symbol: stockSymbol,
+        current: latest["1. open"],
         high: latest["2. high"],
         low: latest["3. low"],
         change: latest["4. close"] - latest["1. open"]
       }
-      console.log(newStockObject);
-
+      this.setState({
+        apiStock: newStockObject
+      })
+      // console.log(this.state.apiStock);
     }).catch((error) => {
       console.log(error)
     })
@@ -44,10 +48,11 @@ class Stock extends Component {
       <div>
         <h2>Stock {this.state.stock.name} (Stock {this.state.stock.symbol})</h2>
         <ul>
-          <li>Current Price: {this.state.stock.open} </li>
-          <li>Change: {this.state.stock.change}</li>
-          <li>High: {this.state.stock.high}</li>
-          <li>Low: {this.state.stock.low}</li>
+        <p>prices accurate up to one min</p>
+          <li>Current Price: {this.state.apiStock.current} </li>
+          <li>Change: {this.state.apiStock.change}</li>
+          <li>High: {this.state.apiStock.high}</li>
+          <li>Low: {this.state.apiStock.low}</li>
         </ul>
       </div>
     )
