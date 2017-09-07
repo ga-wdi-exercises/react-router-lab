@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import Dashboard from './Dashboard.js'
+import About from './About.js'
 import {
   BrowserRouter as Router,
   Route,
@@ -16,6 +18,13 @@ class App extends Component {
             <Link to="/">Home</Link>
             <Link to="/about">About</Link>
             </nav>
+            <main>
+              <Route path ="/"
+                render={() => {
+                  return (< Dashboard  />)
+                }}
+              />
+            </main>
         </div>
       </Router>
     );
