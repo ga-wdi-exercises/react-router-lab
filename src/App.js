@@ -6,6 +6,9 @@ import {
   Redirect
 } from "react-router-dom"
 import './App.css';
+import Dashboard from './Dashboard.js'
+import About from './About.js'
+import Stock from './Stock.js'
 import data from '../data/stock-data.json'
 
 class App extends Component {
@@ -13,7 +16,9 @@ class App extends Component {
   constructor(){
     super()
 
-    this.state = {data}
+    this.state = {
+      data
+    }
   }
 
 
@@ -26,17 +31,24 @@ class App extends Component {
         <div>
 
 
-          //header
+
           <div>
             <div>     <Link to= "/"> HOME </Link>     </div>
             <div>     <Link to = "/about"> ABOUT </Link>     </div>
           </div>
 
-          //main
+          
           <div>
-            <Route    path="/" render= { (e) => <Dashboard stocks = this.state.data  />}           />
-            <Route    path="/about" component = {About} />
-            <Route    path="/stocks/:symbol" component={Stock} />
+            <Route
+              path="/"
+              render={() => {
+                return (
+                  <Dashboard stocks={this.state.data}  />
+                )
+              }}
+            />
+            <Route    path="/about" render = {About} />
+            <Route    path="/stocks/:symbol" render={Stock} />
           </div>
 
 

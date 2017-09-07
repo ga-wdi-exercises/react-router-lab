@@ -4,21 +4,33 @@ import React, { Component } from 'react'
 
 class Dashboard extends Component{
 
-  constructor(){
-    super()
-
-  }
-
-
-
-  render(){
-
-
+  // constructor(){
+  //   super()
+  //
+  //   this.state = {
+  //     stocks: this.props.stocks
+  //   }
+  //
+  // }
 
 
 
-    return(
-      
+  render() {
+  const stocks = this.props.stocks.map((stock) => {
+    return (
+      <div>
+        { stock.name }
+      </div>
+    )
+  })
+
+
+
+
+    return (
+      <div>
+        { stocks }
+      </div>
     )
 
 
@@ -26,3 +38,5 @@ class Dashboard extends Component{
   }
 
 }// end of Dashboard Class
+
+export default Dashboard
