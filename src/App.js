@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import About from './About'
+import Dashboard from './Dashboard'
+import Stocks from './Stocks'
 import {
   BrowserRouter as Router,
   Route,
@@ -32,7 +34,11 @@ class App extends Component {
             <Link to='/'>Home</Link>
             <Link to='/about'>About</Link>
           </nav>
-          <div><p>ssd</p></div>
+          <div className='main-page'>
+            <Route exact path='/' component={Dashboard} />
+            <Route path='/about' component={About} />
+            <Route path='/stocks/:symbols' component={Stocks} />
+          </div>
         </div>
       </Router>
     )
