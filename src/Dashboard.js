@@ -6,7 +6,6 @@ class Dashboard extends Component {
   render () {
     var stocks = this.props.stocks.map((stock, index) => {
       var pathname = `/stocks/${stock.symbol}`
-      console.log('pathname: ' + pathname);
 
       return (
         // If a user clicks on one of the stocks listed in the dashboard view,

@@ -5,14 +5,14 @@ import {
   Link,
   Redirect
 } from 'react-router-dom'
+import axios from 'axios'
 
 import './App.css'
 
-import stockData from '../data/stock-data'
-
+import Search from './Search'
 import Dashboard from './Dashboard'
 import About from './About'
-import Stock from "./Stock"
+import Stock from './Stock'
 
 class App extends Component {
 
@@ -20,9 +20,18 @@ class App extends Component {
     super()
 
     this.state = {
-      stocks: stockData
+      stocks: []
     }
   }
+
+  componentDidMount () {
+    axios.get('http://localhost:3000/stocks').then((response) => {
+      this.setState({
+        stocks: response.data
+      })
+    })
+  }
+
   render () {
     return (
       <Router>
@@ -55,7 +64,7 @@ class App extends Component {
             <Route
               path='/stocks/:symbol' render={(props) => {
                 return (
-                  <Stock stock={props.location.state}/>
+                  <Stock stock={props.location.state} />
                 )
               }}
             />
