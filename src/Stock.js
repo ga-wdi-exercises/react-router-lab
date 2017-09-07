@@ -16,4 +16,5 @@ class Stock extends Component {
     )
   }
 }
+
 export default Stock

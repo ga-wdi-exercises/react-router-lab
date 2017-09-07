@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import Dashboard from './Dashboard.js'
 import About from './About.js'
-import data from '../data/stock-data.json'
+import Data from '../data/stock-data.json'
+import Stock from './Stock.js'
 import {
   BrowserRouter as Router,
   Route,
@@ -14,7 +15,7 @@ class App extends Component {
   constructor () {
     super()
     this.state = {
-      data
+      data : Data
     }
   }
   render() {
@@ -38,6 +39,9 @@ class App extends Component {
                 render={() => {
                   return (< About  />)
                 }}
+              />
+              <Route path ="/stocks/:symbol"
+                component={Stock}
               />
             </main>
         </div>
