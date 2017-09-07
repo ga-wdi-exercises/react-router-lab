@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from "react-router-dom"
 
 
 
@@ -17,9 +18,14 @@ class Dashboard extends Component{
 
   render() {
   const stocks = this.props.stocks.map((stock) => {
+    let pathx = `/stocks/${stock.symbol}`
     return (
-      <div>
-        { stock.name }
+      <div key={stock.symbol}>
+     <Link to = {{
+         pathx,
+         state: {stockx: stock}
+              }} >
+        { stock.name } </Link>
       </div>
     )
   })

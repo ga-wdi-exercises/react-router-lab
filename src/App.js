@@ -37,18 +37,25 @@ class App extends Component {
             <div>     <Link to = "/about"> ABOUT </Link>     </div>
           </div>
 
-          
+
           <div>
+
+
             <Route
-              path="/"
+              exact path="/"
               render={() => {
                 return (
                   <Dashboard stocks={this.state.data}  />
                 )
               }}
-            />
-            <Route    path="/about" render = {About} />
-            <Route    path="/stocks/:symbol" render={Stock} />
+              />
+
+
+
+            <Route    path="/about" component = {About} />
+
+
+            <Route    path="/stocks/:symbol" component={Stock} />
           </div>
 
 
