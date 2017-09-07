@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import data from '../data/stock-data.json'
 
 class About extends Component {
   render() {
