@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import {
   BrowserRouter as Router,
   Route,
-  Link,
-  Redirect
+  Link
 } from "react-router-dom"
 import './App.css';
 import Dashboard from './Dashboard.js'
@@ -13,8 +12,8 @@ import data from '../data/stock-data.json'
 
 class App extends Component {
 
-  constructor(){
-    super()
+  constructor(props){
+    super(props)
 
     this.state = {
       data
@@ -33,8 +32,8 @@ class App extends Component {
 
 
           <div>
-            <div>     <Link to= "/"> HOME </Link>     </div>
-            <div>     <Link to = "/about"> ABOUT </Link>     </div>
+            <div>     <Link to="/"> HOME </Link>     </div>
+            <div>     <Link to="/about"> ABOUT </Link>     </div>
           </div>
 
 
@@ -52,7 +51,7 @@ class App extends Component {
 
 
 
-            <Route    path="/about" component = {About} />
+            <Route    path="/about" component={About} />
 
 
             <Route    path="/stocks/:symbol" component={Stock} />

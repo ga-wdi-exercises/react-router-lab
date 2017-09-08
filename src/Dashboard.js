@@ -17,15 +17,17 @@ class Dashboard extends Component{
 
 
   render() {
-  const stocks = this.props.stocks.map((stock) => {
-    let pathx = `/stocks/${stock.symbol}`
+  const stocks = this.props.stocks.map( (stock, index) => {
+    let pathname = `/stocks/${stock.symbol}`
+    // console.log(pathx)
     return (
-      <div key={stock.symbol}>
-     <Link to = {{
-         pathx,
+      <div key={index}>
+     <Link to={{
+         pathname,
          state: {stockx: stock}
-              }} >
-        { stock.name } </Link>
+              }}>
+      <li>  { stock.name }</li>
+     </Link>
       </div>
     )
   })
@@ -35,7 +37,11 @@ class Dashboard extends Component{
 
     return (
       <div>
-        { stocks }
+        <ul>
+
+ { stocks }
+
+        </ul>
       </div>
     )
 
