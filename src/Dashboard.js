@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import $ from 'jquery'
+import Search from './Search'
+
 
 class Dashboard extends Component {
   constructor (props) {
@@ -42,6 +44,7 @@ class Dashboard extends Component {
     return (
       <div>
         <h1>stocks</h1>
+        <Search />
         <p>{stocks}</p>
       </div>
     )

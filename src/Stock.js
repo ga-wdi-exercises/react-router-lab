@@ -15,6 +15,7 @@ class Stock extends Component {
     const apiEndpoint = `query?function=TIME_SERIES_INTRADAY&symbol=${current}&interval=1min&apikey=`
     let apiKey = '1O39HQEQXJPVJY17'
     let url = `${domain}${apiEndpoint}${apiKey}`
+    //let url = domain + apiEndpoint + apiKey
 
     $.ajax({
       url,
