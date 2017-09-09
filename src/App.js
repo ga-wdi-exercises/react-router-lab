@@ -20,8 +20,11 @@ class App extends Component {
     super()
 
     this.state = {
-      stocks: []
+      stocks: [],
+      tracked: false
     }
+
+    this.handleTrackedState = this.handleTrackedState.bind(this)
   }
 
   componentDidMount () {
@@ -29,6 +32,15 @@ class App extends Component {
       this.setState({
         stocks: response.data
       })
+    })
+  }
+
+  handleTrackedState (newStock) {
+    let tempArray = this.state.stocks
+    tempArray.push(newStock)
+    this.setState({
+      stocks: tempArray,
+      tracked: true
     })
   }
 
@@ -43,6 +55,9 @@ class App extends Component {
               </li>
               <li>
                 <Link to='/about'>About</Link>
+              </li>
+              <li>
+                <Link to='/search'>Search</Link>
               </li>
             </ul>
           </nav>
@@ -65,6 +80,16 @@ class App extends Component {
               path='/stocks/:symbol' render={(props) => {
                 return (
                   <Stock stock={props.location.state} />
+                )
+              }}
+            />
+            <Route
+              path='/search' render={() => {
+                if (this.state.tracked) {
+                  return <Redirect to='/' />
+                }
+                return (
+                  <Search handleTrackedState={this.handleTrackedState} />
                 )
               }}
             />
